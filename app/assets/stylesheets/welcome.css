@@ -16,7 +16,8 @@ body {
   color: white;
 }
 .sign-up h3 {
-  padding-top: 230px;
+  position: fixed;
+  bottom: 55px;
   color: white;
   font-style: italic;
 }

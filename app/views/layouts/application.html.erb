@@ -40,6 +40,11 @@
       </div>
     </div>
   </div>
+  <% if controller_name != 'homes' %>
+    <footer>
+      <img src="http://i.imgur.com/6UG37oR.jpg"/>
+    </footer>
+  <% end %>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
