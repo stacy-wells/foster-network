@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -33,17 +32,29 @@
     </div>
   <%- end -%>
 
+  <% if controller_name != 'homes' %>
   <div class="container">
+  <% end %>
     <div class="row">
-      <div class="column">
+      <div class="columns">
         <%= yield %>
       </div>
     </div>
   </div>
   <% if controller_name != 'homes' %>
-    <footer>
-      <img src="http://i.imgur.com/6UG37oR.jpg"/>
-    </footer>
+  <div class="push"></div>
+  <% end %>
+
+  <% if controller_name != 'homes' %>
+  <div class="container footer">
+    <div class="row">
+      <div class="columns">
+        <footer>
+          <img src="http://i.imgur.com/gOZIZR7.jpg"/>
+        </footer>
+      </div>
+    </div>
+  </div>
   <% end %>
 
   <%= javascript_include_tag 'application' %>

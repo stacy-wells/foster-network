@@ -16,9 +16,15 @@
 
  */
 
-.footer {
- position: fixed;
- bottom: 55px;
- color: white;
- font-style: italic;
+ /* BACKGROUND ************************************/
+body .container {
+  background-color: #f7fbfe;
 }
+footer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 640px;
+ }
+
+/* FORMS ************************************/
