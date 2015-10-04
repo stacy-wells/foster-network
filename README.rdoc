@@ -1,3 +1,8 @@
+![Build Status](https://codeship.com/projects/3c490800-4cc7-0133-1d1f-7691bbba1d6d/status?branch=master)
+![Code Climate](https://codeclimate.com/github/stacy-wells/foster-network.png)
+![Coverage Status](https://coveralls.io/repos/stacy-wells/foster-network/badge.png)
+[ ![Codeship Status for stacy-wells/foster-network](https://codeship.com/projects/3c490800-4cc7-0133-1d1f-7691bbba1d6d/status?branch=master)](https://codeship.com/projects/106442)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
