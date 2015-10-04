@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates_inclusion_of :rescue_group, :in => [true, false]
+  validates :rescue_group, inclusion: [true, false]
 end
