@@ -11,7 +11,7 @@ feature "user signs out", %{
   #   forgotten on the machine I"m using
 
   scenario "authenticated user signs out" do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, rescue_group: true)
 
     visit new_user_session_path
 

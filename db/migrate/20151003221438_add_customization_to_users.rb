@@ -6,6 +6,6 @@ class AddCustomizationToUsers < ActiveRecord::Migration
     add_column :users, :state, :string, null: false
     add_column :users, :phone, :string
     add_column :users, :description, :string
-    add_column :users, :rescue_group, :boolean, null: false, default: false
+    add_column :users, :rescue_group, :boolean
   end
 end

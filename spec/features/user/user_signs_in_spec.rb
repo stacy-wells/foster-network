@@ -6,8 +6,7 @@ feature "user signs in", %{
   So that I can regain access to my account
 } do
   scenario "specify valid credentials" do
-    user = FactoryGirl.create(:user)
-
+    user = FactoryGirl.create(:user, rescue_group: true)
     visit new_user_session_path
 
     fill_in "Email", with: user.email
