@@ -15,16 +15,19 @@
  *= require foundation_and_overrides
 
  */
+// COLORS
+$light-blue       : #f7fbfe;
 
- /* BACKGROUND ************************************/
+// BACKGROUND ************************************/
 body .container {
-  background-color: #f7fbfe;
+  background-color: $light-blue;
 }
+
 footer {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 640px;
- }
+}
 
-/* FORMS ************************************/
+// FORMS ************************************/
