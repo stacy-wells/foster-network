@@ -10,5 +10,4 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :rescue_group, presence: true
-
 end
