@@ -1,19 +1,19 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe User do
-  it { should have_vaild(:first_name).when('John', 'Sally') }
-  it { should_not have_valid(:first_name).when(nil, '') }
+  it { should have_vaild(:first_name).when("John", "Sally") }
+  it { should_not have_valid(:first_name).when(nil, "") }
 
-  it { should have_vaild(:last_name).when('Smith', 'Swanson') }
-  it { should_not have_valid(:last_name).when(nil, '') }
+  it { should have_vaild(:last_name).when("Smith", "Swanson") }
+  it { should_not have_valid(:last_name).when(nil, "") }
 
-  it { should have_valid(:email).when('user@example.com', 'another@gmail.com') }
-  it { should_not have_valid(:email).when(nil, '', 'name@com', 'name.com') }
+  it { should have_valid(:email).when("user@example.com", "another@gmail.com") }
+  it { should_not have_valid(:email).when(nil, "", "name@com", "name.com") }
 
-  it 'has a matching password confirmation for the password' do
+  it "has a matching password confirmation for the password" do
     user = User.new
-    user.password = 'password'
-    user.password_confirmation = 'anotherpassword'
+    user.password = "password"
+    user.password_confirmation = "anotherpassword"
 
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
