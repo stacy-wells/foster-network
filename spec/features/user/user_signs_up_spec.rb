@@ -14,10 +14,16 @@ feature 'user registers', %Q{
 
   scenario 'provide valid registration information' do
     visit new_user_registration_path
+save_and_open_page
 
     fill_in 'Email', with: 'john@example.com'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
+    fill_in 'First Name', with: 'Leslie'
+    fill_in 'Last Name', with: 'Knope'
+    fill_in 'City', with: 'Pawnee'
+    fill_in 'State', with: 'IN'
+    choose('Foster')
 
     click_button 'Sign up'
 
