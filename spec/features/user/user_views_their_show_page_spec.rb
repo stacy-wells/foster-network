@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user can view their show page', %{
+feature "user can view their show page", %{
   As a user
   I want to be able to sign up
   So that I can build a profile page
@@ -12,14 +12,13 @@ feature 'user can view their show page', %{
   [] - User can click a link edit their profile that takes them to a new page
 
 } do
-
   feature "User views their show page" do
     before(:each) do
       @user = FactoryGirl.create(:user)
       visit new_user_session_path
-      fill_in 'Email', with: @user.email
-      fill_in 'Password', with: @user.password
-      click_button 'Log in'
+      fill_in "Email", with: @user.email
+      fill_in "Password", with: @user.password
+      click_button "Log in"
     end
   #
     #   scenario "User clicks on their email to see their show page" do
