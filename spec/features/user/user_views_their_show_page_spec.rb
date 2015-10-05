@@ -20,21 +20,23 @@ feature "user can view their show page", %{
       fill_in "Password", with: @user.password
       click_button "Log in"
     end
-  #
-    #   scenario "User clicks on their email to see their show page" do
-    #     click_link @user.email
-    #
-    #     expect(page).to have_content @user.first_name
-    #     expect(page).to have_content @user.email
-    #     expect(page).to have_content @user.animals[0]
-    #   end
-    #
-    #   scenario "User clicks link to edit their information" do
-    #   visit root_path
-    #   click_link @user.email
-    #   click_link("Edit your information")
-    #
-    #   expect(page).to have_content("Edit your information here:")
-    # end
+
+    scenario "User clicks on their email to see their show page" do
+      @rescue_group = FactoryGirl.create(:user, rescue_group: true)
+      animal = Animal.create!(name: "max", animal_rescue: @rescue_group, fostered_by: @user)
+      click_link @user.email
+
+      expect(page).to have_content @user.first_name
+      expect(page).to have_content @user.email
+      expect(page).to have_content @user.fosters[0].name
+    end
+
+      scenario "User clicks link to edit their information" do
+      visit root_path
+      click_link @user.email
+      click_link("Update your information here.")
+
+      expect(page).to have_content("Edit your information here:")
+    end
   end
 end
