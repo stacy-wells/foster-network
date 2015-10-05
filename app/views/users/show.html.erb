@@ -1,1 +1,21 @@
-<h1>Welcome, <%= @user.first_name%>!</h1>
+<div class="text-center">
+  <h1>Welcome, <%= @user.first_name%>!</h1>
+
+  <h4><%= @user.first_name%> <%= @user.last_name%></h4>
+  <p><%= @user.city%>, <%= @user.state%></p>
+
+  <% if @fosters.nil? %>
+    <h1>Your current animals in need of a foster:</h1>
+    <h1>Your current animals in foster homes:</h1>
+  <% else %>
+    <h4>Your current fosters:</h4>
+      <%= @fosters.each do |animal| %>
+        <h1>
+          <%= animal.name %>
+        </h1>
+      <% end %>
+  <% end %>
+
+
+  <p><%= link_to "Update your information here.", edit_user_registration_path(@user) %></p>
+</div>

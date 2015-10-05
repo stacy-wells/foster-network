@@ -9,7 +9,11 @@ FactoryGirl.define do
     last_name "Lemon"
     city "New York"
     state "NY"
-    rescue_group "true"
+    rescue_group false
   end
 
+  factory :animal do
+    name "Max"
+    rescue_group user
+  end
 end
