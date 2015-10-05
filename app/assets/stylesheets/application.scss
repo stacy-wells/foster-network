@@ -43,6 +43,18 @@ footer {
 #join-link a {
   color: white;
 }
+
 #join-link a:hover {
+  color: orange;
+}
+
+.left a {
+  color: white;
+  display: block;
+  font-weight: lighter;
+  padding-top: 9px;
+}
+
+.left a:hover {
   color: orange;
 }
