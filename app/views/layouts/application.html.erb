@@ -10,7 +10,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">FosterNetwork</a></h1>
+        <h1><a href="/">Foster Network</a></h1>
       </li>
     </ul>
 
@@ -24,6 +24,11 @@
         <%- end -%>
       </ul>
     </section>
+    <% if current_user %>
+      <ul class="left">
+        <li><%= link_to current_user.email, user_path(current_user) %></li>
+      </ul>
+    <% end %>
   </nav>
 
   <%- flash.each do |key, value| -%>
@@ -46,7 +51,7 @@
   <% end %>
 
   <% if controller_name != 'homes' %>
-  <div class="container footer">
+  <div class="container footer" id="footer">
     <div class="row">
       <div class="columns">
         <footer>

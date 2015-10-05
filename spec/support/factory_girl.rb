@@ -9,6 +9,7 @@ FactoryGirl.define do
     last_name "Lemon"
     city "New York"
     state "NY"
+    rescue_group "true"
   end
 
 end
