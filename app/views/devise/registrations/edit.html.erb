@@ -14,6 +14,15 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+    <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
+      <%= f.label :password, "Password (leave blank if you don't want to change it)" %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
     <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
       <%= f.label :first_name, "First Name" %>
@@ -35,14 +44,9 @@
       <%= f.text_field :state, autocomplete: "off" %>
     </div>
 
-    <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
-      <%= f.label :password, "Password (leave blank if you don't want to change it)" %>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <div class="field large-8 medium-4 medium-offset-4 large-offset-2">
+      <%= f.label :description, "Bio/Description" %>
+      <%= f.text_area :description, autofocus: true, :rows=>8 %>
     </div>
 
     <div class="field large-8 large-offset-2 medium-4 medium-offset-4">
