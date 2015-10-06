@@ -63,7 +63,13 @@ footer {
 .edit h2 {
   margin-bottom: 35px;
 }
-// DEVISE ERROR MESSAGES ****************************************/
+// ERROR AND ALERT MESSAGES ****************************************/
 #error_explanation {
   background-color: orange;
+}
+.flash-errors {
+  background-color: orange;
+}
+.flash-alert {
+  background-color: green;
 }
