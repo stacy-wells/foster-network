@@ -1,0 +1,47 @@
+<h1>Add a new animal</h1>
+
+<%= form_for(@animal) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name  %>
+  </div>
+  <div class="field">
+    <%= form.label :species %>
+    <%= form.select :species, [["Dog", "Dog"],["Cat", "Cat"]] %>
+  </div>
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, [["Female", "Female"],["Male", "Male"]] %>
+  </div>
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.select :age, options_for_select(@age_options) %>
+  </div>
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.select :size, options_for_select(@size_options) %>
+  </div>
+  <div class="field">
+    <%= form.label :fixed, "Are they spayed or neutered?" %>
+    <%= form.select :fixed, [["Yes", true],["No", false]] %>
+  </div>
+  <div class="field">
+    <%= form.label :dog_friendly, "Are they good with dogs?" %>
+    <%= form.select :dog_friendly, [["Yes", true],["No", false]] %>
+  </div>
+  <div class="field">
+    <%= form.label :cat_friendly, "Are they good with cats?" %>
+    <%= form.select :cat_friendly, [["Yes", true],["No", false]] %>
+  </div>
+  <div class="field">
+    <%= form.label :kid_friendly, "Are they good with kids?" %>
+    <%= form.select :kid_friendly, [["Yes", true],["No", false]] %>
+  </div>
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Add!", class: "button"%>
+  </div>
+<% end %>

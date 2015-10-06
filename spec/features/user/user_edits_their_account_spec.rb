@@ -8,7 +8,7 @@ feature "user can edit their account information", %{
   Acceptance Criteria
   [x] - User must be signed in
   [x] - User can navigate to their edit page from their show page
-  [x] - User can edit their email, password, first name, last name, description,
+  [x] - User can edit their email, password, name, description,
        city, and state
   [x] - User should navigate to their show page on submit
   [x] - User must provide current password to confirm changes
@@ -30,8 +30,7 @@ feature "user can edit their account information", %{
       click_link "Update your information here."
 
       expect(page).to have_content "Email"
-      expect(page).to have_content "First Name"
-      expect(page).to have_content "Last Name"
+      expect(page).to have_content "Name"
       expect(page).to have_content "Password"
       expect(page).to have_content "Password Confirmation"
       expect(page).to have_content "Description"
@@ -43,7 +42,7 @@ feature "user can edit their account information", %{
       scenario "User sees notification of success" do
         click_link "Update your information here."
 
-        fill_in "First Name", with: "Mary"
+        fill_in "Name", with: "Mary"
         fill_in "Current Password", with: @user.password
         click_button "Update"
 
@@ -55,12 +54,12 @@ feature "user can edit their account information", %{
       scenario "User sees notification of success" do
         click_link "Update your information here."
 
-        fill_in "Last Name", with: "Crawley"
+        fill_in "City", with: "Boston"
         fill_in "Current Password", with: @user.password
         click_button "Update"
 
-        expect(page).to have_content "Crawley"
-        expect(page).to_not have_content "Lemon"
+        expect(page).to have_content "Boston"
+        expect(page).to_not have_content "New York"
         expect(page).to have_content "Your changes have been saved."
       end
     end
@@ -82,7 +81,7 @@ feature "user can edit their account information", %{
       changes" do
         click_link "Update your information here."
 
-        fill_in "Last Name", with: "Crawley"
+        fill_in "City", with: "Boston"
         fill_in "Current Password", with: ""
         click_button "Update"
 

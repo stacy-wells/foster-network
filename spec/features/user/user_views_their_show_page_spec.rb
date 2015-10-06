@@ -23,10 +23,10 @@ feature "user can view their show page", %{
 
     scenario "User clicks on their email to see their show page" do
       @rescue_group = FactoryGirl.create(:user, rescue_group: true)
-      Animal.create!(name: "max", animal_rescue: @rescue_group, fostered_by: @user)
+      FactoryGirl.create(:animal, animal_rescue_id: @rescue_group.id, fostered_by_id: @user.id)
       click_link @user.email
 
-      expect(page).to have_content @user.first_name
+      expect(page).to have_content @user.name
       expect(page).to have_content @user.email
       expect(page).to have_content @user.fosters[0].name
     end

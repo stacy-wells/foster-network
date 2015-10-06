@@ -4,5 +4,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @fosters = @user.fosters
+    @animals = current_user.animals
   end
 end
