@@ -32,5 +32,4 @@ describe Animal do
   it { should_not have_valid(:fixed).when(nil, "") }
 
   it { should belong_to :animal_rescue }
-
 end
