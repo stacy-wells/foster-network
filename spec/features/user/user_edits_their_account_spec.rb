@@ -78,7 +78,8 @@ feature "user can edit their account information", %{
         expect(page).to have_content("Password confirmation doesn't match Password")
       end
 
-      scenario "user does not enter their current password to confirm their changes" do
+      scenario "user does not enter their current password to confirm their
+      changes" do
         click_link "Update your information here."
 
         fill_in "Last Name", with: "Crawley"
