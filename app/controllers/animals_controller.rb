@@ -25,7 +25,8 @@ class AnimalsController < ApplicationController
     @size_options = size_options
 
     if current_user.id != @animal.animal_rescue_id
-      flash[:errors] = "We're sorry.  You don't have permission to update this animal."
+      flash[:errors] = "We're sorry.  You don't have permission to update
+                       this animal."
       redirect_to root_path
     end
   end
@@ -34,7 +35,8 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
 
     if current_user.id != @animal.animal_rescue_id
-      flash[:errors] = "We're sorry.  You don't have permission to update this animal."
+      flash[:errors] = "We're sorry.  You don't have permission to update
+                        this animal."
       redirect_to root_path
     end
 
@@ -42,11 +44,10 @@ class AnimalsController < ApplicationController
       flash[:notice] = "#{@animal.name} has been updated!"
       redirect_to user_path(current_user)
     else
-      flash[:errors] = @animal.errors.full_messages.join(', ')
+      flash[:errors] = @animal.errors.full_messages.join(", ")
       render :edit
     end
   end
-
 
   def age_options
     options = ["1-3 years", "3-6 years", "6-10 years", "10-14 years",
