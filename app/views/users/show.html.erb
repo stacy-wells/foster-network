@@ -3,13 +3,33 @@
   <p><%= @user.city%>, <%= @user.state%></p>
 
   <% if @user.rescue_group? %>
-    <h1>Your current animals in need of a foster:</h1>
-      <% if !@animals.empty? %>
-        <% @animals.each do |animal| %>
-          <p><%= animal.name %>: <%= animal.description %> </p>
-        <% end %>
-      <% end %>
-    <h1>Your current animals in foster homes:</h1>
+    <% if !@animals.empty? %>
+      <h1>Your current animals in need of a foster:</h1>
+
+        <div class="animal text-left large-6 large-offset-3">
+          <% @animals.each do |animal| %>
+            <h4><%= animal.name %></h4>
+            <p>Species: <%= animal.species %></p>
+            <p>Gender: <%= animal.gender %></p>
+            <p>Age: <%= animal.age %></p>
+            <p>Size: <%= animal.size %></p>
+            <p>Description: <%= animal.description %></p>
+            <% if animal.dog_friendly? %>
+              <p>
+                dog friendly
+              </p>
+            <% end %>
+            <%= link_to "Update", edit_animal_path(animal) %>
+          <% end %>
+        </div>
+
+      <h1>Your current animals in foster homes:</h1>
+
+      <div class="">
+
+      </div>
+    <% end %>
+
     <%= link_to "Add an animal", new_animal_path %>
   <% else %>
     <% if !@fosters.empty? %>
