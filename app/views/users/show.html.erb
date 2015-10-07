@@ -4,8 +4,10 @@
 
   <% if @user.rescue_group? %>
     <h1>Your current animals in need of a foster:</h1>
-      <% @animals.each do |animal| %>
-        <p><%= animal.name %>: <%= animal.description %> </p>
+      <% if !@animals.nil? %>
+        <% @animals.each do |animal| %>
+          <p><%= animal.name %>: <%= animal.description %> </p>
+        <% end %>
       <% end %>
     <h1>Your current animals in foster homes:</h1>
     <%= link_to "Add an animal", new_animal_path %>
