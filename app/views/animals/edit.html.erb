@@ -1,4 +1,4 @@
-<h1>Add a new animal</h1>
+<h1>Update <%= @animal.name %></h1>
 
 <%= form_for(@animal) do |form| %>
   <div class="field">
@@ -42,6 +42,6 @@
     <%= form.text_area :description %>
   </div>
   <div class="actions">
-    <%= form.submit "Add!", class: "button"%>
+    <%= form.submit "Update", class: "button"%>
   </div>
 <% end %>
