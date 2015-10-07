@@ -20,7 +20,7 @@ feature "user signs out", %{
 
     click_button "Log in"
 
-    expect(page).to have_content("Signed in successfully")
+    expect(page).to have_content("Welcome back!")
 
     click_link "Sign Out"
     expect(page).to have_content("Signed out successfully")

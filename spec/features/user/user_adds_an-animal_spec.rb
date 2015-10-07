@@ -6,15 +6,15 @@ feature "user can add an animal", %{
   So other users can see it
 
   Acceptance Criteria
-  [] - User must be signed in
-  [] - User must have a rescue account
-  [] - User can navigate to the add an animal form from their show page
-  [] - User should see the form displayed correctly
-  [] - User must provide the animals name, species, gender, size, and age and
+  [x] - User must be signed in
+  [x] - User must have a rescue account
+  [x] - User can navigate to the add an animal form from their show page
+  [x] - User should see the form displayed correctly
+  [x] - User must provide the animals name, species, gender, size, and age and
         optionally a description
-  [] - User should be notified of failure if their animal hasn't been saved
-  [] - User should be notified of success if their animal has been saved
-  [] - User should see their updated information on their show page
+  [x] - User should be notified of failure if their animal hasn't been saved
+  [x] - User should be notified of success if their animal has been saved
+  [x] - User should see their updated information on their show page
 
 } do
   feature "User adds an animal" do
