@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv-rails'
+gem 'devise'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -31,5 +33,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-gem 'devise'
-gem 'foundation-rails'
