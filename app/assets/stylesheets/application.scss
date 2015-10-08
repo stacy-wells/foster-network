@@ -94,33 +94,32 @@ footer {
     margin-bottom: 0;
   }
 }
-
 .animal img {
-  max-width: 275px;
-  max-height: 275px;
-  min-height: 275px;
+  border-color: gray;
   border-style: solid;
   border-width: 2px;
-  border-color: gray;
+  max-height: 275px;
+  max-width: 275px;
+  min-height: 275px;
 }
-
 .animal .icons {
   border: none;
   max-height: 10px;
   max-width: 10px;
-
 }
+
 // USER PROFILE ****************************************/
-.user-profile-text, .user-profile-photo {
+.user-profile-text,
+.user-profile-photo {
   display: inline;
 }
 .user-profile-text p {
-  padding-bottom: 0;
   margin-bottom: 10px;
+  padding-bottom: 0;
 }
 .user-profile-photo {
-  max-width: 300px;
   max-height: 300px;
+  max-width: 300px;
 }
 .user-profile {
   margin-top: 25px;

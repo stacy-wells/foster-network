@@ -21,7 +21,7 @@ feature "user registers", %{
     fill_in "City", with: "Pawnee"
     fill_in "State", with: "IN"
     attach_file "Profile Photo",
-     "#{Rails.root}/spec/support/images/default-profile.jpeg"
+                "#{Rails.root}/spec/support/images/default-profile.jpeg"
     choose("Foster")
 
     click_button "Sign up"
