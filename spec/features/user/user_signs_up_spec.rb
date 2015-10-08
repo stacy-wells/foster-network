@@ -25,9 +25,11 @@ feature "user registers", %{
     choose("Foster")
 
     click_button "Sign up"
-
     user = User.last
+
     expect(page).to have_content("Welcome! You have signed up successfully.")
+    
+    click_link user.email
 
     expect(page).to have_xpath(
       "//img[@src=\"/uploads/user/profile_photo/#{user.id}/default-profile.jpeg\"]")

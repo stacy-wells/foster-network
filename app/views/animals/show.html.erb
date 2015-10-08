@@ -1,0 +1,17 @@
+<div class="text-center">
+  <div class="user-profile animal-show">
+    <div class="user-profile-photo column">
+      <%= image_tag(@animal.animal_photo) %>
+    </div>
+    <div class="user-profile-text large-8 column text-left">
+      <h4><%= @animal.name%></h4>
+      <p><strong>Species:</strong> <%= @animal.species %></p>
+      <p><strong>Gender:</strong> <%= @animal.gender %></p>
+      <p><strong>Age:</strong> <%= @animal.age %></p>
+      <p><strong>Size:</strong> <%= @animal.size %></p>
+      <p><strong>Description:</strong> <%= @animal.description %></p>
+      <% if @animal.animal_rescue_id == current_user.id %>
+        <%= link_to "Update", edit_animal_path(@animal) %>
+      <% end %>
+    </div>
+  </div>

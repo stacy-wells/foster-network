@@ -24,6 +24,8 @@ feature "user can edit their account information", %{
       fill_in "Email", with: @user.email
       fill_in "Password", with: @user.password
       click_button "Log in"
+
+      click_link @user.email
     end
 
     scenario "User navigates to their edit page from their show page and sees form" do

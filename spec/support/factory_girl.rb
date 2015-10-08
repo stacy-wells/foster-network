@@ -22,6 +22,8 @@ FactoryGirl.define do
     dog_friendly true
     cat_friendly true
     kid_friendly true
+    animal_photo { Rack::Test::UploadedFile
+      .new(File.join(Rails.root, 'spec', 'support', 'images', 'default-profile.jpeg')) }
     animal_rescue_id 1
   end
 end
