@@ -28,7 +28,6 @@ feature "user registers", %{
     user = User.last
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
-    
     click_link user.email
 
     expect(page).to have_xpath(

@@ -28,7 +28,6 @@ feature "user views all animals on index page", %{
     end
 
     scenario "User navigates to this page after signing in" do
-
       expect(page).to have_content "Animals in the Foster Network"
     end
 
@@ -42,7 +41,6 @@ feature "user views all animals on index page", %{
 
     scenario "should see all the animals displayed with their photo, name,
       species, gender, age, size" do
-
       expect(page).to have_content @animal.name
       expect(page).to have_content @animal.species
       expect(page).to have_content @animal.gender
@@ -54,7 +52,7 @@ feature "user views all animals on index page", %{
 
     scenario "User should see the appropriate icons for each animal depending on
       their diposition" do
-      expect(page).to have_css('.icons')
+      expect(page).to have_css(".icons")
     end
 
     feature "User should be able to click on an animal's name or 'See More' link
