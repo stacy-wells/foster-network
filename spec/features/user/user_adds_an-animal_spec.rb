@@ -45,6 +45,7 @@ feature "user can add an animal", %{
       expect(page).to have_content "Size"
       expect(page).to have_content "Age"
       expect(page).to have_content "Description"
+      expect(page).to have_content "Photo"
     end
 
     feature "User fills out form correctly" do
@@ -60,9 +61,13 @@ feature "user can add an animal", %{
         select "Yes", from: "Are they good with dogs?"
         select "Yes", from: "Are they good with cats?"
         select "Yes", from: "Are they good with kids?"
+        attach_file "Photo", "#{Rails.root}/spec/support/images/default-profile.jpeg"
         fill_in "Description", with: "Very friendly!  Loves to play fetch."
         click_button "Add"
 
+        animal = Animal.last
+        expect(page).to have_xpath("//img[@src=\"/uploads/animal/animal_photo/#{animal.id}/default-profile.jpeg\"]")
+        expect(animal.animal_photo.file.filename).to eq("default-profile.jpeg")
         expect(page).to have_content "Petie has been added!"
         expect(page).to have_content "Very friendly!  Loves to play fetch."
       end

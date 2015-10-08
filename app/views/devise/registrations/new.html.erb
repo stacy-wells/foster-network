@@ -14,46 +14,50 @@
       <%= f.label :rescue_group, "Foster", value: false %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :name, "Name*" %>
       <%= f.text_field :name, autofocus: true %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :email, "Email*" %>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :phone, "Phone Number" %>
       <%= f.text_field :phone, autofocus: true %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :city, "City*" %>
       <%= f.text_field :city, autofocus: true %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :state, "State*" %>
       <%= f.text_field :state, autofocus: true %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :password, "Password (8 characters minimum)*" %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :password_confirmation, "Please re-enter your password*" %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
-    <div class="field large-4 medium-4 medium-offset-4 large-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :description, "Bio/Description" %>
       <%= f.text_area :description, autofocus: true, :rows=>8 %>
     </div>
 
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
+      <%= f.label :profile_photo, "Profile Photo" %>
+      <%= f.file_field :profile_photo %>
+    </div>
     <p class="text-center">* denotes a required field</p>
 
     <div class="actions text-center">
@@ -62,5 +66,15 @@
   <% end %>
   <div class="text-center">
       <%= render "devise/shared/links" %>
+  </div>
+
+  <div class="container footer" id="footer">
+    <div class="row">
+      <div class="columns">
+        <footer>
+          <img src="http://i.imgur.com/gOZIZR7.jpg" class="dog"/>
+        </footer>
+      </div>
+    </div>
   </div>
 </div>
