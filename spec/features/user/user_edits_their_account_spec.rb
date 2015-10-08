@@ -44,11 +44,13 @@ feature "user can edit their account information", %{
 
         fill_in "Name", with: "Mary"
         fill_in "Current Password", with: @user.password
-        attach_file "Profile Photo", "#{Rails.root}/spec/support/images/profile.jpg"
+        attach_file "Profile Photo",
+         "#{Rails.root}/spec/support/images/profile.jpg"
         click_button "Update"
 
         user = User.last
-        expect(page).to have_xpath("//img[@src=\"/uploads/user/profile_photo/#{user.id}/profile.jpg\"]")
+        expect(page).to have_xpath(
+          "//img[@src=\"/uploads/user/profile_photo/#{user.id}/profile.jpg\"]")
         expect(user.profile_photo.file.filename).to eq("profile.jpg")
         expect(page).to have_content "Mary"
         expect(page).to_not have_content "Elizabeth"

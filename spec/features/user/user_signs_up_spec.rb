@@ -20,7 +20,8 @@ feature "user registers", %{
     fill_in "Name", with: "Leslie Knope"
     fill_in "City", with: "Pawnee"
     fill_in "State", with: "IN"
-    attach_file "Profile Photo", "#{Rails.root}/spec/support/images/default-profile.jpeg"
+    attach_file "Profile Photo",
+     "#{Rails.root}/spec/support/images/default-profile.jpeg"
     choose("Foster")
 
     click_button "Sign up"
@@ -28,7 +29,8 @@ feature "user registers", %{
     user = User.last
     expect(page).to have_content("Welcome! You have signed up successfully.")
 
-    expect(page).to have_xpath("//img[@src=\"/uploads/user/profile_photo/#{user.id}/default-profile.jpeg\"]")
+    expect(page).to have_xpath(
+      "//img[@src=\"/uploads/user/profile_photo/#{user.id}/default-profile.jpeg\"]")
     expect(user.profile_photo.file.filename).to eq("default-profile.jpeg")
     expect(page).to have_content("Sign Out")
   end
