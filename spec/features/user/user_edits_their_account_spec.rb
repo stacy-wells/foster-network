@@ -45,7 +45,7 @@ feature "user can edit their account information", %{
         fill_in "Name", with: "Mary"
         fill_in "Current Password", with: @user.password
         attach_file "Profile Photo",
-         "#{Rails.root}/spec/support/images/profile.jpg"
+                    "#{Rails.root}/spec/support/images/profile.jpg"
         click_button "Update"
 
         user = User.last

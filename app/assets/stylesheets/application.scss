@@ -68,12 +68,15 @@ footer {
 #error_explanation {
   background-color: orange;
 }
+
 .flash-errors {
   background-color: orange;
 }
+
 .flash-alert {
   background-color: orange;
 }
+
 .flash-notice {
   background-color: white;
 }
@@ -82,6 +85,7 @@ footer {
 .animal-container {
   display: flex;
 }
+
 .animal {
   background-color: white;
   padding: 10px;
@@ -94,6 +98,7 @@ footer {
     margin-bottom: 0;
   }
 }
+
 .animal img {
   border-color: gray;
   border-style: solid;
@@ -102,6 +107,7 @@ footer {
   max-width: 275px;
   min-height: 275px;
 }
+
 .animal .icons {
   border: none;
   max-height: 10px;
@@ -113,17 +119,21 @@ footer {
 .user-profile-photo {
   display: inline;
 }
+
 .user-profile-text p {
   margin-bottom: 10px;
   padding-bottom: 0;
 }
+
 .user-profile-photo {
   max-height: 300px;
   max-width: 300px;
 }
+
 .user-profile {
   margin-top: 25px;
 }
+
 #rescue-header {
   margin-top: 100px;
 }
