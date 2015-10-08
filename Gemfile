@@ -10,6 +10,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'fog'
+gem 'carrierwave'
+
 
 group :development, :test do
   gem 'pry-rails'

@@ -5,43 +5,68 @@
     <%= form.label :name %>
     <%= form.text_field :name  %>
   </div>
+
   <div class="field">
     <%= form.label :species %>
     <%= form.select :species, [["Dog", "Dog"],["Cat", "Cat"]], prompt: "Select a species" %>
   </div>
+
   <div class="field">
     <%= form.label :gender %>
     <%= form.select :gender, [["Female", "Female"],["Male", "Male"]], prompt: "Select a gender" %>
   </div>
+
   <div class="field">
     <%= form.label :age %>
     <%= form.select :age, options_for_select(@age_options), prompt: "Select an age range" %>
   </div>
+
   <div class="field">
     <%= form.label :size %>
     <%= form.select :size, options_for_select(@size_options), prompt: "Select a size range" %>
   </div>
+
   <div class="field">
     <%= form.label :fixed, "Are they spayed or neutered?" %>
     <%= form.select :fixed, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
+
   <div class="field">
     <%= form.label :dog_friendly, "Are they good with dogs?" %>
     <%= form.select :dog_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
+
   <div class="field">
     <%= form.label :cat_friendly, "Are they good with cats?" %>
     <%= form.select :cat_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
+
   <div class="field">
     <%= form.label :kid_friendly, "Are they good with kids?" %>
     <%= form.select :kid_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
+
   <div class="field">
     <%= form.label :description %><br>
     <%= form.text_area :description %>
   </div>
+
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
+    <%= form.label :animal_photo, "Photo" %>
+    <%= form.file_field :animal_photo %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Update", class: "button"%>
   </div>
 <% end %>
+
+<div class="container footer" id="footer">
+  <div class="row">
+    <div class="columns">
+      <footer>
+        <img src="http://i.imgur.com/gOZIZR7.jpg" class="dog"/>
+      </footer>
+    </div>
+  </div>
+</div>

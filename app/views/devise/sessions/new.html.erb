@@ -4,12 +4,12 @@
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field large-4 large-offset-4 medium-4 medium-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="field large-4 large-offset-4 medium-4 medium-offset-4">
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
@@ -28,5 +28,15 @@
 
   <div class="text-center">
       <%= render "devise/shared/links" %>
+  </div>
+
+  <div class="container footer" id="footer">
+    <div class="row">
+      <div class="columns">
+        <footer>
+          <img src="http://i.imgur.com/gOZIZR7.jpg" class="dog"/>
+        </footer>
+      </div>
+    </div>
   </div>
 </div>

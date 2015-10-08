@@ -75,7 +75,8 @@ class AnimalsController < ApplicationController
       :fixed,
       :dog_friendly,
       :cat_friendly,
-      :kid_friendly
+      :kid_friendly,
+      :animal_photo
       ).merge(
         animal_rescue_id: current_user.id
       )

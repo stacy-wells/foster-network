@@ -1,36 +1,49 @@
 <div class="text-center">
-  <h4><%= @user.name%></h4>
-  <p><%= @user.city%>, <%= @user.state%></p>
+  <div class="user-profile">
+    <div class="user-profile-photo column">
+      <%= image_tag(current_user.profile_photo) %>
+    </div>
+    <div class="user-profile-text large-8 column text-left">
+      <h4><%= @user.name%></h4>
+      <h5><%= @user.city%>, <%= @user.state%></h5>
+      <p><%= @user.description%></p>
+      <p><%= link_to "Update your information here.", edit_user_registration_path(@user) %></p>
+      <% if @user.rescue_group? %>
+        <p><%= link_to "Add an animal", new_animal_path %></p>
+      <% end %>
+    </div>
+  </div>
 
   <% if @user.rescue_group? %>
     <% if !@animals.empty? %>
-      <h1>Your current animals in need of a foster:</h1>
-
-        <div class="animal text-left large-6 large-offset-3">
-          <% @animals.each do |animal| %>
-            <h4><%= animal.name %></h4>
-            <p>Species: <%= animal.species %></p>
-            <p>Gender: <%= animal.gender %></p>
-            <p>Age: <%= animal.age %></p>
-            <p>Size: <%= animal.size %></p>
-            <p>Description: <%= animal.description %></p>
+      <h3>Your current animals in need of a foster:</h3>
+      <div class="animal-container">
+        <% @animals.each do |animal| %>
+          <div class="animal text-left large-4">
+            <h4><strong><%= animal.name %></strong></h4>
+              <%= image_tag(animal.animal_photo) %>
+            <p><strong>Species:</strong> <%= animal.species %></p>
+            <p><strong>Gender:</strong> <%= animal.gender %></p>
+            <p><strong>Age:</strong> <%= animal.age %></p>
+            <p><strong>Size:</strong> <%= animal.size %></p>
+            <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
             <% if animal.dog_friendly? %>
-              <p>
-                dog friendly
-              </p>
+              <img src="http://i.imgur.com/3FFfFvJ.png", class="icons"/>
+            <% end %>
+            <% if animal.dog_friendly? %>
+              <img src="http://i.imgur.com/A6KAGlG.jpg", class="icons"/>
+            <% end %>
+            <% if animal.dog_friendly? %>
+              <img src="http://i.imgur.com/neUlzil.jpg", class="icons"/>
             <% end %>
             <%= link_to "Update", edit_animal_path(animal) %>
-          <% end %>
-        </div>
-
-      <h1>Your current animals in foster homes:</h1>
-
-      <div class="">
-
+          </div>
+        <% end %>
       </div>
+
+      <h3>Your current animals in foster homes:</h3>
     <% end %>
 
-    <%= link_to "Add an animal", new_animal_path %>
   <% else %>
     <% if !@fosters.empty? %>
       <h4>Your current fosters:</h4>
@@ -41,7 +54,4 @@
         <% end %>
     <% end %>
   <% end %>
-
-
-  <p><%= link_to "Update your information here.", edit_user_registration_path(@user) %></p>
 </div>

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include DeviseHelper
 
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
   has_many :fosters, class_name: "Animal", foreign_key: "fostered_by_id"
   has_many :animals, class_name: "Animal", foreign_key: "animal_rescue_id"
   # Include default devise modules. Others available are:
@@ -12,4 +14,5 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :rescue_group, inclusion: [true, false]
+  validates :description, length: { maximum: 500 }
 end
