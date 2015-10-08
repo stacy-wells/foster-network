@@ -1,0 +1,28 @@
+<h1>Animals in the Foster Network</h1>
+
+<div class="animal-container">
+  <% @animals.each do |animal| %>
+    <div class="animal text-left large-4">
+      <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
+        <%= image_tag(animal.animal_photo) %>
+      <p><strong>Species:</strong> <%= animal.species %></p>
+      <p><strong>Gender:</strong> <%= animal.gender %></p>
+      <p><strong>Age:</strong> <%= animal.age %></p>
+      <p><strong>Size:</strong> <%= animal.size %></p>
+      <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
+        <% if animal.dog_friendly? %>
+          <img src="http://i.imgur.com/3FFfFvJ.png", class="icons"/>
+        <% end %>
+        <% if animal.dog_friendly? %>
+          <img src="http://i.imgur.com/A6KAGlG.jpg", class="icons"/>
+        <% end %>
+        <% if animal.dog_friendly? %>
+          <img src="http://i.imgur.com/neUlzil.jpg", class="icons"/>
+        <% end %>
+        <%= link_to "See More", animal_path(animal) %>
+        <% if animal.animal_rescue_id == current_user.id %>
+          <%= link_to "Update", edit_animal_path(animal) %>
+        <% end %>
+    </div>
+    <% end %>
+</div>

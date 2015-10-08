@@ -84,12 +84,15 @@ footer {
 // ANIAMLS ****************************************/
 .animal-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .animal {
   background-color: white;
   padding: 10px;
   margin: 10px;
+  max-width: 298px;
+  min-width: 298px;
   display: inline-block;
   border-style: solid;
   border-width: 3px;
@@ -98,7 +101,7 @@ footer {
   p {
     margin-bottom: 0;
   }
-  
+
 }
 
 .animal img {
@@ -116,6 +119,17 @@ footer {
   max-width: 10px;
 }
 
+.icons {
+  margin: 10px;
+  max-height: 40px;
+  max-width: 40px;
+}
+
+// ANIMAL SHOW PAGE ************************************/
+
+.animal-show img {
+  border-radius: 100%;
+}
 // USER PROFILE ****************************************/
 .user-profile-text,
 .user-profile-photo {

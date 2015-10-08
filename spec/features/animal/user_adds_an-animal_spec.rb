@@ -24,6 +24,7 @@ feature "user can add an animal", %{
       fill_in "Email", with: @user.email
       fill_in "Password", with: @user.password
       click_button "Log in"
+      visit user_path(@user)
     end
 
     scenario "User navigates to the add an animal page from their show page" do
