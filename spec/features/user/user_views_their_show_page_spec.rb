@@ -12,7 +12,7 @@ feature "user can view their show page", %{
   [] - User can click a link edit their profile that takes them to a new page
 
 } do
-  feature "User views their show page" do
+  feature "User signs in" do
     before(:each) do
       @user = FactoryGirl.create(:user)
       visit new_user_session_path

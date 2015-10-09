@@ -17,7 +17,7 @@ feature "user can add an animal", %{
   [x] - User should see their updated information on their show page
 
 } do
-  feature "User adds an animal" do
+  feature "User is signed in" do
     before(:each) do
       @user = FactoryGirl.create(:user, rescue_group: true)
       visit new_user_session_path
