@@ -69,7 +69,7 @@ class AnimalsController < ApplicationController
       flash[:notice] = "#{@animal.name} has been deleted."
       redirect_to user_path(current_user)
     else
-      flash[:errors] = @animal.errors.full_messages.join(', ')
+      flash[:errors] = @animal.errors.full_messages.join(". ")
       redirect_to @animal
     end
   end
