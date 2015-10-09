@@ -108,22 +108,17 @@ footer {
   border-color: gray;
   border-style: solid;
   border-width: 2px;
-  max-height: 275px;
   max-width: 275px;
-  min-height: 275px;
+  height: 275px;
 }
 
 .animal .icons {
   border: none;
-  max-height: 10px;
-  max-width: 10px;
+  height: 40px;
+
 }
 
-.icons {
-  margin: 10px;
-  max-height: 40px;
-  max-width: 40px;
-}
+
 
 // ANIMAL SHOW PAGE ************************************/
 

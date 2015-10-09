@@ -27,6 +27,10 @@
             <p><strong>Age:</strong> <%= animal.age %></p>
             <p><strong>Size:</strong> <%= animal.size %></p>
             <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
+            <%= link_to "Update", edit_animal_path(animal) %>
+            <%= link_to "Delete", animal_path(animal), method: :delete,
+                data: { confirm: 'Are you sure?' }%>
+                <br>
             <% if animal.dog_friendly? %>
               <img src="http://i.imgur.com/3FFfFvJ.png", class="icons"/>
             <% end %>
@@ -36,9 +40,6 @@
             <% if animal.dog_friendly? %>
               <img src="http://i.imgur.com/neUlzil.jpg", class="icons"/>
             <% end %>
-            <%= link_to "Update", edit_animal_path(animal) %>
-            <%= link_to "Delete", animal_path(animal), method: :delete,
-                data: { confirm: 'Are you sure?' }%>
           </div>
         <% end %>
       </div>

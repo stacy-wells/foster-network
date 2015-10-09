@@ -10,6 +10,11 @@
       <p><strong>Age:</strong> <%= animal.age %></p>
       <p><strong>Size:</strong> <%= animal.size %></p>
       <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
+        <%= link_to "See More", animal_path(animal) %>
+        <% if animal.animal_rescue_id == current_user.id %>
+          <%= link_to "Update", edit_animal_path(animal) %>
+        <% end %>
+        <br>
         <% if animal.dog_friendly? %>
           <img src="http://i.imgur.com/3FFfFvJ.png", class="icons"/>
         <% end %>
@@ -18,10 +23,6 @@
         <% end %>
         <% if animal.dog_friendly? %>
           <img src="http://i.imgur.com/neUlzil.jpg", class="icons"/>
-        <% end %>
-        <%= link_to "See More", animal_path(animal) %>
-        <% if animal.animal_rescue_id == current_user.id %>
-          <%= link_to "Update", edit_animal_path(animal) %>
         <% end %>
     </div>
     <% end %>
