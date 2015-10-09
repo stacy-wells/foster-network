@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers:  { registrations: :registrations }
   resources :homes, only: [:index]
   resources :users, only: [:show]
-  resources :animals, only: [:index, :show, :new, :create, :edit, :update]
+  resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end

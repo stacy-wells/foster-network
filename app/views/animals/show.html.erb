@@ -12,6 +12,8 @@
       <p><strong>Description:</strong> <%= @animal.description %></p>
       <% if @animal.animal_rescue_id == current_user.id %>
         <%= link_to "Update", edit_animal_path(@animal) %>
+        <%= link_to "Delete", animal_path(@animal), method: :delete,
+            data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
   </div>

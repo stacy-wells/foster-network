@@ -57,6 +57,23 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def destroy
+    @animal = Animal.find(params[:id])
+
+    if (current_user.id != @animal.animal_rescue_id)
+      flash[:errors] = "I'm sorry, you don't have permission to delete this animal."
+      redirect_to @animal
+    end
+
+    if @animal.destroy
+      flash[:notice] = "#{@animal.name} has been deleted."
+      redirect_to user_path(current_user)
+    else
+      flash[:errors] = @animal.errors.full_messages.join(', ')
+      redirect_to @animal
+    end
+  end
+
   def age_options
     options = ["1-3 years", "3-6 years", "6-10 years", "10-14 years",
                "under a year", "over 15 years"]
