@@ -10,6 +10,7 @@ feature "user volunteers to foster an animal", %{
   [x] - User should see 'Foster Me' next to the animal on the index page if that
        animal is not currently being fostered
   [x] - User should see notification of success
+  [x] - Rescue must recieve an email when a new offer has been made
 } do
   feature "Users are created" do
     before(:each) do
@@ -35,6 +36,7 @@ feature "user volunteers to foster an animal", %{
 
       click_button "Foster Me!"
       expect(page).to have_content "#{@rescue_group.name} has been notified"
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
   end
 end

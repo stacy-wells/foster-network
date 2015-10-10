@@ -11,8 +11,8 @@ feature "user accepts foster offer", %{
   [x] - User should see a list of foster offers on the animal's show page
   [x] - User should see notification of success after they accept the foster
         offer
-  [x] - User should see a 'Fostered By:' field in the animal div with the
-        foster's email address after accepting the foster
+  [x] - User should no longer see an animal in the index page if they have a
+        foster
 } do
   feature "Users are created" do
     before(:each) do
@@ -50,7 +50,7 @@ feature "user accepts foster offer", %{
     end
 
     feature "User accepts foster offfer" do
-      scenario "User sees foster's email in the animal div" do
+      scenario "User no longer sees animal in index page" do
         visit new_user_session_path
         fill_in "Email", with: @rescue_group.email
         fill_in "Password", with: @rescue_group.password
@@ -60,7 +60,7 @@ feature "user accepts foster offer", %{
         click_button "Accept Foster"
         click_link @rescue_group.email
         click_link "Foster Network"
-        expect(page).to have_content "In a foster home!"
+        expect(page).to_not have_content @animal.name
       end
     end
   end

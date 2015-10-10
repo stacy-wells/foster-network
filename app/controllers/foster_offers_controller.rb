@@ -3,6 +3,7 @@ class FosterOffersController < ApplicationController
     @foster_offer = FosterOffer.create!(foster_offer_params)
 
     if @foster_offer.save
+      FosterOfferMailer.new_foster_offer(@foster_offer).deliver_later
       flash[:alert] = "#{get_rescue_name} has been notified!"
       redirect_to animals_path
     else
