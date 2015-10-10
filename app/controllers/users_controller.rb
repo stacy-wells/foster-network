@@ -1,9 +1,32 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @fosters = @user.fosters
-    @animals = current_user.animals
+    @user_animals = current_user.animals
+    @unfostered_animals = get_unfostered_animals
+    @offers = FosterOffer.all
+    @fostered_animals = get_fostered_animals
+  end
+
+  private
+
+  def get_fostered_animals
+    array = []
+    @user_animals.each do |animal|
+      if !animal.fostered_by_id.nil?
+        array << animal
+      end
+    end
+    array
+  end
+
+  def get_unfostered_animals
+    array = []
+    @user_animals.each do |animal|
+      if animal.fostered_by_id.nil?
+        array << animal
+      end
+    end
+    array
   end
 end

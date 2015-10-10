@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :fosters, class_name: "Animal", foreign_key: "fostered_by_id"
   has_many :animals, class_name: "Animal", foreign_key: "animal_rescue_id"
+  has_many :foster_offers
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

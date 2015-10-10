@@ -1,0 +1,30 @@
+<div class="animal-container">
+  <% @fosters.each do |animal| %>
+    <div class="animal text-left large-4">
+      <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
+        <%= image_tag(animal.animal_photo) %>
+      <p><strong>Species:</strong> <%= animal.species %></p>
+      <p><strong>Gender:</strong> <%= animal.gender %></p>
+      <p><strong>Age:</strong> <%= animal.age %></p>
+      <p><strong>Size:</strong> <%= animal.size %></p>
+      <p>
+        <strong>Rescue:</strong> <%= link_to animal.animal_rescue.name,
+          user_path(animal.animal_rescue.id) %>
+      </p>
+      <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
+      <%= link_to "Update", edit_animal_path(animal) %>
+      <%= link_to "Delete", animal_path(animal), method: :delete,
+          data: { confirm: 'Are you sure?' }%>
+          <br>
+      <% if animal.dog_friendly? %>
+        <img src="http://i.imgur.com/3FFfFvJ.png", class="icons"/>
+      <% end %>
+      <% if animal.dog_friendly? %>
+        <img src="http://i.imgur.com/A6KAGlG.jpg", class="icons"/>
+      <% end %>
+      <% if animal.dog_friendly? %>
+        <img src="http://i.imgur.com/neUlzil.jpg", class="icons"/>
+      <% end %>
+    </div>
+  <% end %>
+</div>

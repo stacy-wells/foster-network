@@ -1,10 +1,12 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
+    @foster_offer = FosterOffer.new
   end
 
   def show
     @animal = Animal.find(params[:id])
+    @offers = FosterOffer.where(animal_id: @animal.id)
   end
 
   def new
@@ -101,7 +103,8 @@ class AnimalsController < ApplicationController
       :dog_friendly,
       :cat_friendly,
       :kid_friendly,
-      :animal_photo
+      :animal_photo,
+      :fostered_by_id
       ).merge(
         animal_rescue_id: current_user.id
       )

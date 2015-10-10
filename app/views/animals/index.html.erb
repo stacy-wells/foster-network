@@ -4,12 +4,30 @@
   <% @animals.each do |animal| %>
     <div class="animal text-left large-4">
       <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
-        <%= image_tag(animal.animal_photo) %>
+      <%= image_tag(animal.animal_photo) %>
+      <% if current_user.id != animal.animal_rescue_id  && !current_user.rescue_group? && animal.fostered_by_id == nil %>
+        <% if animal.fostered_by.nil? %>
+          <%= form_for(@foster_offer) do |form| %>
+            <%= form.hidden_field :user_id, value: current_user.id  %>
+            <%= form.hidden_field :animal_id, value: animal.id  %>
+            <%= form.hidden_field :animal_rescue_id, value: animal.animal_rescue_id  %>
+              <%= form.submit "Foster Me!", class: "button foster-me", data: { confirm: 'Are you sure?'}%>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if !animal.fostered_by.nil? %>
+          <p><strong>In a foster home!</strong></p>
+      <% end %>
       <p><strong>Species:</strong> <%= animal.species %></p>
       <p><strong>Gender:</strong> <%= animal.gender %></p>
       <p><strong>Age:</strong> <%= animal.age %></p>
       <p><strong>Size:</strong> <%= animal.size %></p>
+      <p>
+        <strong>Rescue:</strong> <%= link_to animal.animal_rescue.name,
+          user_path(animal.animal_rescue.id) %>
+      </p>
       <p><strong>Description:</strong> <%= truncate(animal.description, length: 50)%></p>
+
         <%= link_to "See More", animal_path(animal) %>
         <% if animal.animal_rescue_id == current_user.id %>
           <%= link_to "Update", edit_animal_path(animal) %>

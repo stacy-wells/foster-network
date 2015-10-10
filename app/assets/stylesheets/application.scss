@@ -21,6 +21,7 @@ $light-blue       : #f7fbfe;
 // BACKGROUND ************************************/
 body .container {
   background-color: $light-blue;
+  height: 100%;
 }
 
 footer {
@@ -118,8 +119,9 @@ footer {
 
 }
 
-
-
+div.foster-offer {
+  background-color: #D9D9D9;
+}
 // ANIMAL SHOW PAGE ************************************/
 
 .animal-show img {

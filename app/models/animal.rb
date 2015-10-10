@@ -3,6 +3,7 @@ class Animal < ActiveRecord::Base
 
   belongs_to :animal_rescue, class_name: "User"
   belongs_to :fostered_by, class_name: "User"
+  has_many :foster_offers
 
   validates :name, presence: true
   validates :species, presence: true
