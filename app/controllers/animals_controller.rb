@@ -1,6 +1,8 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @animals = Animal.all
+    @animals = Animal.all.where(fostered_by: nil)
     @foster_offer = FosterOffer.new
   end
 

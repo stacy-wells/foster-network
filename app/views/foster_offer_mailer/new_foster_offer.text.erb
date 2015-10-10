@@ -1,0 +1,10 @@
+Hi, <%= @rescue_group.name %>!
+
+We have good news! <%= @foster.name %> has offered to foster <%= @animal.name %>!
+
+You can find out more information and accept <%= @foster.name %> as a foster home
+<%= link_to "here!", "/animals/#{@animal.id}" %>
+
+Thanks for networking with us!
+
+-Foster Network
