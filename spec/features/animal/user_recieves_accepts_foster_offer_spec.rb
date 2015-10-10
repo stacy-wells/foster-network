@@ -20,49 +20,48 @@ feature "user accepts foster offer", %{
       @foster = FactoryGirl.create(:user, rescue_group: false)
       @animal = FactoryGirl.create(:animal, animal_rescue_id: @rescue_group.id)
       FosterOffer.create!(animal_id: @animal.id, user_id: @foster.id,
-        animal_rescue_id: @rescue_group.id)
+                          animal_rescue_id: @rescue_group.id)
     end
 
-  feature "User is signed in but not a rescue" do
-    scenario "User does see foster offers" do
-      visit new_user_session_path
-      fill_in "Email", with: @foster.email
-      fill_in "Password", with: @foster.password
-      click_button "Log in"
-      click_button "Foster Me"
-      click_link @animal.name
+    feature "User is signed in but not a rescue" do
+      scenario "User does see foster offers" do
+        visit new_user_session_path
+        fill_in "Email", with: @foster.email
+        fill_in "Password", with: @foster.password
+        click_button "Log in"
+        click_button "Foster Me"
+        click_link @animal.name
 
-      expect(page).to_not have_content "These users have offered to foster Roscoe"
+        expect(page).to_not have_content "These users have offered to foster Roscoe"
+      end
     end
-  end
 
-  feature "User is signed in as a rescue" do
-    scenario "User sees foster offers" do
-      visit new_user_session_path
-      fill_in "Email", with: @rescue_group.email
-      fill_in "Password", with: @rescue_group.password
-      click_button "Log in"
+    feature "User is signed in as a rescue" do
+      scenario "User sees foster offers" do
+        visit new_user_session_path
+        fill_in "Email", with: @rescue_group.email
+        fill_in "Password", with: @rescue_group.password
+        click_button "Log in"
 
-      click_link @animal.name
-      expect(page).to have_content "These users have offered to foster Roscoe"
-      expect(page).to have_button "Accept Foster"
+        click_link @animal.name
+        expect(page).to have_content "These users have offered to foster Roscoe"
+        expect(page).to have_button "Accept Foster"
+      end
     end
-  end
 
-  feature "User accepts foster offfer" do
-    scenario "User sees foster's email in the animal div" do
-    visit new_user_session_path
-    fill_in "Email", with: @rescue_group.email
-    fill_in "Password", with: @rescue_group.password
-    click_button "Log in"
+    feature "User accepts foster offfer" do
+      scenario "User sees foster's email in the animal div" do
+        visit new_user_session_path
+        fill_in "Email", with: @rescue_group.email
+        fill_in "Password", with: @rescue_group.password
+        click_button "Log in"
 
-    click_link @animal.name
-    click_button "Accept Foster"
-    click_link @rescue_group.email
-    click_link "Foster Network"
-    
-    expect(page).to have_content "In a foster home!"
+        click_link @animal.name
+        click_button "Accept Foster"
+        click_link @rescue_group.email
+        click_link "Foster Network"
+        expect(page).to have_content "In a foster home!"
+      end
     end
-  end
   end
 end

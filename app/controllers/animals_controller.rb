@@ -7,7 +7,6 @@ class AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
     @offers = FosterOffer.where(animal_id: @animal.id)
-    @users = User.where()
   end
 
   def new
