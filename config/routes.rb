@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :users, only: [:show]
   resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :foster_offers
 end
