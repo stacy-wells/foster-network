@@ -25,6 +25,16 @@
     </div>
 
     <div class="field small-8 small-offset-2 large-6 large-offset-3">
+      <%= f.label :password, "Password (8 characters minimum)*" %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
+      <%= f.label :password_confirmation, "Please re-enter your password*" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :phone, "Phone Number" %>
       <%= f.text_field :phone, autofocus: true %>
     </div>
@@ -39,14 +49,19 @@
       <%= f.text_field :state, autofocus: true %>
     </div>
 
-    <div class="field small-8 small-offset-2 large-6 large-offset-3">
-      <%= f.label :password, "Password (8 characters minimum)*" %>
-      <%= f.password_field :password, autocomplete: "off" %>
+    <div class="field small-8 small-offset-2 large-6 large-offset-3" id="additional">
+      <%= f.label :has_dogs, "Do you have dogs in your home?" %>
+      <%= f.select :has_dogs, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
     </div>
 
-    <div class="field small-8 small-offset-2 large-6 large-offset-3">
-      <%= f.label :password_confirmation, "Please re-enter your password*" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <div class="field small-8 small-offset-2 large-6 large-offset-3" id="additional">
+      <%= f.label :has_cats, "Do you have cats in your home?" %>
+      <%= f.select :has_cats, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
+    </div>
+
+    <div class="field small-8 small-offset-2 large-6 large-offset-3" id="additional">
+      <%= f.label :has_kids, "Do you have kids in your home?" %>
+      <%= f.select :has_kids, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
     </div>
 
     <div class="field small-8 small-offset-2 large-6 large-offset-3">

@@ -42,7 +42,6 @@ feature "user views all animals on index page", %{
     scenario "should see all the animals displayed with their photo, name,
       species, gender, age, size" do
       expect(page).to have_content @animal.name
-      expect(page).to have_content @animal.species
       expect(page).to have_content @animal.gender
       expect(page).to have_content @animal.age
       expect(page).to have_content @animal.size
@@ -61,7 +60,6 @@ feature "user views all animals on index page", %{
         click_link "Roscoe"
 
         expect(page).to have_content @animal.name
-        expect(page).to have_content @animal.species
         expect(page).to have_content @animal.gender
         expect(page).to have_content @animal.age
         expect(page).to have_content @animal.size
@@ -71,7 +69,6 @@ feature "user views all animals on index page", %{
         click_link "See More"
 
         expect(page).to have_content @animal.name
-        expect(page).to have_content @animal.species
         expect(page).to have_content @animal.gender
         expect(page).to have_content @animal.age
         expect(page).to have_content @animal.size

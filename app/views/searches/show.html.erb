@@ -1,0 +1,15 @@
+<h1>Here Are Your Potential Fosters:</h1>
+<p><%= link_to "Back", new_search_path %></p>
+
+<% if @search.search_users.empty? %>
+  <p>I'm sorry, but we couldn't find anyone that matches your criteria.</p>
+<% else %>
+
+  <% @search.search_users.each do |user| %>
+  <div class="user-result">
+    <h3><%= user.name  %></h3>
+    <p><%= link_to user.email, user_path(user)  %></p>
+  </div>
+
+  <% end %>
+<% end %>

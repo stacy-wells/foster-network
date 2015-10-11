@@ -5,7 +5,6 @@
         <%= image_tag(animal.animal_photo) %>
         <p><strong>Fostered by: </strong><%= link_to animal.fostered_by.email,
           user_path(animal.fostered_by_id) %></p>
-      <p><strong>Species:</strong> <%= animal.species %></p>
       <p><strong>Gender:</strong> <%= animal.gender %></p>
       <p><strong>Age:</strong> <%= animal.age %></p>
       <p><strong>Size:</strong> <%= animal.size %></p>
