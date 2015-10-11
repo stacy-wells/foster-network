@@ -15,7 +15,6 @@
             data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
-
     <% if current_user.id == @animal.animal_rescue_id %>
       <h3>These users have offered to foster <%= @animal.name %></h3>
         <% if @offers.empty? %>
@@ -24,15 +23,28 @@
           <% @offers.each do |offer| %>
             <% user = User.find(offer.user_id) %>
             <div class="foster-offer large-offset-4 large-4">
-              <p><%= user.name %>, <%= link_to user.email, user_path(user) %></p>
+            <p><%= user.name %>, <%= link_to user.email, user_path(user) %></p>
+              <% if @animal.fostered_by_id.nil? %>
                 <%= form_for(@animal) do |form| %>
                   <%= form.hidden_field :fostered_by_id, value: user.id %>
                   <%= form.submit "Accept Foster", class: "button small accept-foster-button",
                    data: { confirm: 'Are you sure?'}, method: :patch %>
-            </div>
                 <% end %>
-              </p>
+
+              <% else %>
+                <% if @animal.fostered_by_id == user.id  %>
+                  <%= form_for(@animal) do |form| %>
+                    <%= form.hidden_field :fostered_by_id, value: nil %>
+                    <%= form.submit "Remove Foster", class: "button small accept-foster-button",
+                     data: { confirm: 'Are you sure?'}, method: :patch %>
+                  <% end %>
+                <% else %>
+                  <p>You must remove the current foster before accepting a new one.</p>
+                  </div>
+                <% end %>
+              <% end %>
           <% end %>
-        <% end %>
+      <% end %>
     <% end %>
   </div>
+</div>
