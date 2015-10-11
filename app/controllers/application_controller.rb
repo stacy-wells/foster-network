@@ -27,6 +27,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :has_dogs
     devise_parameter_sanitizer.for(:account_update) << :has_kids
     devise_parameter_sanitizer.for(:account_update) << :has_cats
-
   end
 end

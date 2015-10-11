@@ -139,8 +139,8 @@ feature "user searches for foster homes", %{
       scenario "user registers with no dogs in the home, accepts a foster, and
         does not show up in the search results for a dog free home" do
         @animal = FactoryGirl.create(:animal,
-                                      animal_rescue_id: @rescue_group.id,
-                                      fostered_by_id: @foster.id)
+                                     animal_rescue_id: @rescue_group.id,
+                                     fostered_by_id: @foster.id)
 
         visit new_user_session_path
         fill_in "Email", with: @rescue_group.email

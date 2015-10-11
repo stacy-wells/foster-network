@@ -5,7 +5,6 @@ class Search < ActiveRecord::Base
 
   def search_users
     users = User.all
-    animals = Animal.all
 
     users = users.where(rescue_group: false)
     users = users.where(["has_dogs = ?", dog_friendly]) if dog_friendly == false

@@ -17,14 +17,14 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(
-    :dog_friendly,
-    :cat_friendly,
-    :kid_friendly,
-    :city,
-    :state,
-    :name,
-    :email,
-    :rescue_group
-    )
+      :dog_friendly,
+      :cat_friendly,
+      :kid_friendly,
+      :city,
+      :state,
+      :name,
+      :email,
+      :rescue_group
+      )
   end
 end
