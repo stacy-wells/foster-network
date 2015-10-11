@@ -15,7 +15,7 @@ class Search < ActiveRecord::Base
     users = users.where(["name ILIKE ?", name]) if name.present?
     users = users.where(["email LIKE ?", email]) if email.present?
 
-    if !dog_friendly?
+    if dog_friendly == false
       array = []
       users.each do |user|
         if user.fosters.empty?
