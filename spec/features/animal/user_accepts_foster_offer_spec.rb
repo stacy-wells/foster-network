@@ -62,6 +62,18 @@ feature "user accepts foster offer", %{
         click_link "Foster Network"
         expect(page).to_not have_content @animal.name
       end
+
+      scenario "User recieves an email letting them know that the offer was
+        accepted" do
+        visit new_user_session_path
+        fill_in "Email", with: @rescue_group.email
+        fill_in "Password", with: @rescue_group.password
+        click_button "Log in"
+
+        click_link @animal.name
+        click_button "Accept Foster"
+        expect(ActionMailer::Base.deliveries.count).to eq(1)
+      end
     end
   end
 end

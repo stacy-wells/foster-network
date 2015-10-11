@@ -52,6 +52,9 @@ class AnimalsController < ApplicationController
     end
 
     if @animal.update(animal_params)
+      if animal_params.include?(:fostered_by_id) && animal_params[:fostered_by_id] != nil
+        AcceptFosterMailer.accept_foster(@animal).deliver_later
+      end
       flash[:notice] = "#{@animal.name} has been updated!"
       redirect_to user_path(current_user)
     else
