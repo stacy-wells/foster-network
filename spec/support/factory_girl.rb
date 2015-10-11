@@ -9,6 +9,9 @@ FactoryGirl.define do
     city "New York"
     state "NY"
     rescue_group false
+    has_dogs false
+    has_cats false
+    has_kids false
   end
 
   factory :animal do

@@ -1,0 +1,47 @@
+<h1>Find Foster Homes</h1>
+
+<%= form_for @search do |form| %>
+
+<div class="field">
+  <%= form.label :name, "Foster's name" %>
+  <%= form.text_field :name  %>
+</div>
+
+<div class="field">
+  <%= form.label :email, "Foster's email" %>
+  <%= form.text_field :email  %>
+</div>
+
+<div class="field">
+  <%= form.label :dog_friendly, "Can they have dogs in the home?" %>
+  <%= form.select :dog_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
+</div>
+
+<div class="field">
+  <%= form.label :cat_friendly, "Can they have cats in the home?" %>
+  <%= form.select :cat_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
+</div>
+
+<div class="field">
+  <%= form.label :kid_friendly, "Can they have kids in the home?" %>
+  <%= form.select :kid_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
+</div>
+
+<div class="field">
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+</div>
+
+<div class="field">
+  <%= form.label :state %>
+  <%= form.text_field :state %>
+</div>
+
+<%= form.hidden_field :rescue_group, value: false %>
+
+<div class="actions">
+  <%= form.submit "Search", class: "button"%>
+</div>
+<% end %>
+
+<p><%= link_to "Back", user_path(@user) %></p>

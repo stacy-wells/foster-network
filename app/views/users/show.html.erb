@@ -11,6 +11,7 @@
       <p><%= link_to "Update your information here.", edit_user_registration_path(@user) %></p>
       <% if @user.rescue_group? %>
         <p><%= link_to "Add an animal", new_animal_path %></p>
+        <p><%= link_to "Find foster homes", new_search_path %></p>
       <% end %>
     </div>
   </div>
@@ -18,9 +19,9 @@
     <% if !@unfostered_animals.empty? %>
       <h3>Your current animals in need of a foster:</h3>
         <%= render 'animals/unfostered' %>
+    <% end %>
       <h3>Your current animals in foster homes:</h3>
         <%= render 'animals/fostered' %>
-    <% end %>
   <% else %>
     <% if !@fosters.empty? %>
       <h4>Your current fosters:</h4>
