@@ -25,6 +25,6 @@ class SearchesController < ApplicationController
       :name,
       :email,
       :rescue_group
-      )
+    )
   end
 end
