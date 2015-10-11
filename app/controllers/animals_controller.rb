@@ -53,7 +53,7 @@ class AnimalsController < ApplicationController
 
     if @animal.update(animal_params)
       if animal_params.include?(:fostered_by_id) &&
-      animal_params[:fostered_by_id] != ""
+         animal_params[:fostered_by_id] != ""
         AcceptFosterMailer.accept_foster(@animal).deliver_later
       end
       flash[:notice] = "#{@animal.name} has been updated!"
