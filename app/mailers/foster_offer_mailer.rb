@@ -10,4 +10,15 @@ class FosterOfferMailer < ApplicationMailer
       subject: "New foster offer for #{@animal.name}"
     )
   end
+
+  def get_foster_offer(user, current_user)
+    @user = user
+    @rescue = current_user
+    @rescue = current_user
+    
+    mail(
+      to: user.email,
+      subject: "Would you like to foster?"
+    )
+  end
 end

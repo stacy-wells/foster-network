@@ -1,0 +1,9 @@
+Hello, <%= User.name %>!
+
+<%= @rescue.name %> has determined that your home environment would be perfect
+for one or more of their animals.  Would you like to help out?  Head over to
+<%= link_to "The Foster Network", "/users/#{@rescue.id}" %> to learn more or shoot them an email at
+<%= @rescue.email %>.
+
+Thanks for fostering with us!
+-Foster Network
