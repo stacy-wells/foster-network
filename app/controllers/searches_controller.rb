@@ -13,6 +13,17 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
   end
 
+  def send_mail
+    @search = Search.find(params[:id])
+    @potential_fosters = @search.search_users
+    @potential_fosters.each do |user|
+      FosterOfferMailer.get_foster_offer(user, current_user).deliver_later
+    end
+    flash[:notice] = "#{@potential_fosters.count} user(s) have been emailed!."
+    redirect_to :back
+  end
+
+
   private
 
   def search_params

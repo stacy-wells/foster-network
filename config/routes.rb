@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :animals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :foster_offers, only: [:create]
   resources :searches
+
+  get :send_mail, to: 'searches#send_mail', as: :send_mail
 end

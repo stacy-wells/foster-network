@@ -6,10 +6,17 @@
 <% else %>
 
   <% @search.search_users.each do |user| %>
-  <div class="user-result">
-    <h3><%= user.name  %></h3>
-    <p><%= link_to user.email, user_path(user)  %></p>
-  </div>
-
+    <div class="user-result">
+      <h3><%= user.name  %></h3>
+      <p><%= link_to user.email, user_path(user)  %></p>
+    </div>
   <% end %>
+
+  <%= link_to "Notify", :controller => "searches", :action => "send_mail", :id => @search.id %>
+
+  <p>
+    * By clicking 'Notify', you are sending out an email to these users to ask
+    them if they would be interested in fostering for your organization.  Please
+    do so respectfully.
+  </p>
 <% end %>
