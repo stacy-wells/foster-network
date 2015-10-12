@@ -22,6 +22,11 @@ $light-blue       : #f7fbfe;
 html body {
   background-color: $light-blue;
   height: 100%;
+
+    a:hover {
+    color: orange;
+  }
+
 }
 
 footer {
@@ -109,13 +114,15 @@ footer {
   border-color: gray;
   border-style: solid;
   border-width: 2px;
-  max-width: 274px;
   max-height: 274px;
+  max-width: 274px;
 }
+
 .animal .animal-photo-space {
   height: 274px;
   width: 274px;
 }
+
 .animal .icons {
   border: none;
   height: 40px;
@@ -128,7 +135,7 @@ div.foster-offer {
 }
 
 .animal .update-link {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 // ANIMAL SHOW PAGE ************************************/
 
@@ -179,8 +186,8 @@ div.foster-offer {
 
 .user-result {
   background-color: #D9D9D9;
-  padding: 3px;
   margin: 10px;
+  padding: 3px;
 }
 
 .user-result p {
@@ -197,12 +204,12 @@ div.foster-offer {
   }
 
   .animal {
-    margin: 0px;
+    margin: 0;
     margin-bottom: 10px;
   }
 
   .top-bar .title-area li {
-    margin: 0px;
+    margin: 0;
   }
 
   .top-bar .top-bar-section li {
@@ -210,11 +217,7 @@ div.foster-offer {
   }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  html body{
+  html body {
     background-color: blue;
   }
-}
-
-html body a:hover {
-  color: orange;
 }
