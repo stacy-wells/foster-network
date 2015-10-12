@@ -15,9 +15,10 @@ class FosterOfferMailer < ApplicationMailer
     @user = user
     @rescue = current_user
     @rescue = current_user
-      mail(
-        to: user.email,
-        subject: "Would you like to foster?"
-      )
+    
+    mail(
+      to: user.email,
+      subject: "Would you like to foster?"
+    )
   end
 end

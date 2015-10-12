@@ -20,7 +20,7 @@ feature "user notifies the users in thier search results", %{
       fill_in "Email", with: @rescue_group.email
       fill_in "Password", with: @rescue_group.password
       click_button "Log in"
-  end
+    end
 
     scenario "user performs a search, sees results and 'Notify' button" do
       click_link @rescue_group.email

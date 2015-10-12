@@ -23,7 +23,6 @@ class SearchesController < ApplicationController
     redirect_to :back
   end
 
-
   private
 
   def search_params
