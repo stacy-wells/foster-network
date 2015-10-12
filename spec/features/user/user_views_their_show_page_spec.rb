@@ -34,7 +34,7 @@ feature "user can view their show page", %{
     scenario "User clicks link to edit their information" do
       visit root_path
       click_link @user.email
-      click_link("Update your information here.")
+      click_link("Update your information")
 
       expect(page).to have_content("Edit your information here:")
     end

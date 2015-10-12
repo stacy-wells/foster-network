@@ -1,50 +1,63 @@
-<div class="text-center">
-  <div class="user-profile animal-show">
-    <div class="user-profile-photo column">
-      <%= image_tag(@animal.animal_photo) %>
-    </div>
-    <div class="user-profile-text large-8 column text-left">
-      <h4><%= @animal.name%></h4>
-      <p><strong>Gender:</strong> <%= @animal.gender %></p>
-      <p><strong>Age:</strong> <%= @animal.age %></p>
-      <p><strong>Size:</strong> <%= @animal.size %></p>
-      <p><strong>Description:</strong> <%= @animal.description %></p>
-      <% if @animal.animal_rescue_id == current_user.id %>
-        <%= link_to "Update", edit_animal_path(@animal) %>
-        <%= link_to "Delete", animal_path(@animal), method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </div>
+<div class="user-profile large-12 animal-show">
+  <div class="user-profile-photo columns small-12">
+    <%= image_tag(@animal.animal_photo) %>
+  </div>
+  <div class="user-profile-text small-12">
+    <h4><strong><%= @animal.name%></strong></h4>
+    <p><strong>Gender:</strong> <%= @animal.gender %></p>
+    <p><strong>Age:</strong> <%= @animal.age %></p>
+    <p><strong>Size:</strong> <%= @animal.size %></p>
+    <p><strong>Description:</strong> <%= @animal.description %>
+    <% if @animal.animal_rescue_id == current_user.id %>
+
+      <%= link_to "Update", edit_animal_path(@animal) %> ·
+      <%= link_to "Delete", animal_path(@animal), method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    </p>
+    <% end %>
+  </div>
+</div>
+
+
     <% if current_user.id == @animal.animal_rescue_id %>
-      <h3>These users have offered to foster <%= @animal.name %></h3>
+      <h3 class="text-center">These users have offered to foster <%= @animal.name %>:</h3>
+      <div class="foster-offer large-offset-4 large-4 text-center">
         <% if @offers.empty? %>
           <p>No offers yet.</p>
+
         <% else %>
           <% @offers.each do |offer| %>
             <% user = User.find(offer.user_id) %>
-            <div class="foster-offer large-offset-4 large-4">
-            <p><%= user.name %>, <%= link_to user.email, user_path(user) %></p>
+            <p><b><%= user.name %></b>, <%= link_to user.email, user_path(user) %></p>
+
               <% if @animal.fostered_by_id.nil? %>
                 <%= form_for(@animal) do |form| %>
                   <%= form.hidden_field :fostered_by_id, value: user.id %>
                   <%= form.submit "Accept Foster", class: "button small accept-foster-button",
                    data: { confirm: 'Are you sure?'}, method: :patch %>
                 <% end %>
-
+              <p>
+                -----------------
+              </p>
               <% else %>
+
                 <% if @animal.fostered_by_id == user.id  %>
                   <%= form_for(@animal) do |form| %>
                     <%= form.hidden_field :fostered_by_id, value: nil %>
                     <%= form.submit "Remove Foster", class: "button small accept-foster-button",
                      data: { confirm: 'Are you sure?'}, method: :patch %>
                   <% end %>
+
                 <% else %>
                   <p>You must remove the current foster before accepting a new one.</p>
-                  </div>
+                  <p>
+                    -----------------
+                  </p>
                 <% end %>
+
               <% end %>
+
           <% end %>
+        </div>
       <% end %>
     <% end %>
-  </div>
-</div>

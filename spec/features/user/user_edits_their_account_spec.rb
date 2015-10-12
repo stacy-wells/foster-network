@@ -29,7 +29,7 @@ feature "user can edit their account information", %{
     end
 
     scenario "User navigates to their edit page from their show page and sees form" do
-      click_link "Update your information here."
+      click_link "Update your information"
 
       expect(page).to have_content "Email"
       expect(page).to have_content "Name"
@@ -42,7 +42,7 @@ feature "user can edit their account information", %{
 
     feature "User fills out form correctly" do
       scenario "User sees notification of success" do
-        click_link "Update your information here."
+        click_link "Update your information"
 
         fill_in "Name", with: "Mary"
         fill_in "Current Password", with: @user.password
@@ -60,7 +60,7 @@ feature "user can edit their account information", %{
       end
 
       scenario "User sees notification of success" do
-        click_link "Update your information here."
+        click_link "Update your information"
 
         fill_in "City", with: "Boston"
         fill_in "Current Password", with: @user.password
@@ -75,7 +75,7 @@ feature "user can edit their account information", %{
     feature "user fills out the form incorrectly" do
       scenario "user does not enter in a matching new password and password
       confirmation and sees error message" do
-        click_link "Update your information here."
+        click_link "Update your information"
 
         fill_in "Password (leave blank", with: "12345678"
         fill_in "Password Confirmation", with: "01234567"
@@ -87,7 +87,7 @@ feature "user can edit their account information", %{
 
       scenario "user does not enter their current password to confirm their
       changes" do
-        click_link "Update your information here."
+        click_link "Update your information"
 
         fill_in "City", with: "Boston"
         fill_in "Current Password", with: ""

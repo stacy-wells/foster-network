@@ -25,12 +25,14 @@ feature "user can edit an animal", %{
     end
 
     scenario "User navigates to the update an animal page from their show page" do
+      click_link @user.email
       click_link "Update"
 
       expect(page).to have_content "Update Roscoe"
     end
 
     scenario "User sees the update an animal form diplayed correctly" do
+      click_link @user.email
       click_link "Update"
 
       expect(page).to have_content "Update Roscoe"
@@ -44,6 +46,7 @@ feature "user can edit an animal", %{
 
     feature "User fills out form correctly" do
       scenario "User sees notification of success" do
+        click_link @user.email
         click_link "Update"
 
         fill_in "Name", with: "Petie"

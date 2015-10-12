@@ -19,7 +19,7 @@ class SearchesController < ApplicationController
     @potential_fosters.each do |user|
       FosterOfferMailer.get_foster_offer(user, current_user).deliver_later
     end
-    flash[:notice] = "#{@potential_fosters.count} user(s) have been emailed!."
+    flash[:notice] = "#{@potential_fosters.count} user(s) have been emailed!"
     redirect_to :back
   end
 
