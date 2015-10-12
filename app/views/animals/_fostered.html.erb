@@ -2,7 +2,9 @@
   <% @fostered_animals.each do |animal| %>
     <div class="animal text-left large-4">
       <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
-        <%= image_tag(animal.animal_photo) %>
+        <div class="animal-photo-space">
+          <%= image_tag(animal.animal_photo) %>
+        </div>
         <p><strong>Fostered by: </strong><%= link_to animal.fostered_by.email,
           user_path(animal.fostered_by_id) %></p>
       <p><strong>Gender:</strong> <%= animal.gender %></p>

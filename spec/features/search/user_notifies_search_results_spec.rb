@@ -28,7 +28,7 @@ feature "user notifies the users in thier search results", %{
 
       click_button "Search"
 
-      expect(page).to have_content "Notify"
+      expect(page).to have_content "NOTIFY"
     end
 
     scenario "user performs a search, and notify's results" do
@@ -36,7 +36,7 @@ feature "user notifies the users in thier search results", %{
       click_link "Find foster homes"
 
       click_button "Search"
-      click_link "Notify"
+      click_link "NOTIFY"
 
       expect(page).to have_content("1 user(s) have been emailed!")
     end

@@ -41,7 +41,6 @@ feature "user can add an animal", %{
       click_link "Add an animal"
 
       expect(page).to have_content "Add a new animal"
-      expect(page).to have_content "Species"
       expect(page).to have_content "Gender"
       expect(page).to have_content "Size"
       expect(page).to have_content "Age"
@@ -54,7 +53,6 @@ feature "user can add an animal", %{
         click_link "Add an animal"
 
         fill_in "Name", with: "Petie"
-        select "Dog", from: "Species"
         select "Male", from: "Gender"
         select "Extra Small: under 10lbs", from: "Size"
         select "1-3 years", from: "Age"
@@ -80,7 +78,6 @@ feature "user can add an animal", %{
       scenario "User does not provide a name or an age" do
         click_link "Add an animal"
 
-        select "Dog", from: "Species"
         select "Male", from: "Gender"
         select "Extra Small: under 10lbs", from: "Size"
         click_button "Add"

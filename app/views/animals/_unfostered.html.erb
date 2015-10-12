@@ -2,7 +2,9 @@
   <% @unfostered_animals.each do |animal| %>
     <div class="animal text-left large-4">
       <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
-        <%= image_tag(animal.animal_photo) %>
+        <div class="animal-photo-space">
+          <%= image_tag(animal.animal_photo) %>
+        </div>
       <p><strong>Gender:</strong> <%= animal.gender %></p>
       <p><strong>Age:</strong> <%= animal.age %></p>
       <p><strong>Size:</strong> <%= animal.size %></p>
