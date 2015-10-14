@@ -12,8 +12,7 @@ class AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
-    @age_options = age_options
-    @size_options = size_options
+    @age_options = Animal.age_options
   end
 
   def create
@@ -24,16 +23,14 @@ class AnimalsController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:errors] = @animal.errors.full_messages.join(".  ")
-      @age_options = age_options
-      @size_options = size_options
+      @age_options = Animal.age_options
       render :new
     end
   end
 
   def edit
     @animal = Animal.find(params[:id])
-    @age_options = age_options
-    @size_options = size_options
+    @age_options = Animal.age_options
 
     if current_user.id != @animal.animal_rescue_id
       flash[:errors] = "We're sorry.  You don't have permission to update
@@ -44,6 +41,7 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
+    @age_options = Animal.age_options
 
     if current_user.id != @animal.animal_rescue_id
       flash[:errors] = "We're sorry.  You don't have permission to update
@@ -81,17 +79,44 @@ class AnimalsController < ApplicationController
     end
   end
 
-  def age_options
-    options = ["1-3 years", "3-6 years", "6-10 years", "10-14 years",
-               "under a year", "over 15 years"]
-    options
+  def petfinder_add_all
+    @animal = Animal.new
   end
 
-  def size_options
-    options = ["Extra Small: under 10lbs", "Small: 10lbs to 20lbs",
-               "Medium: 21lbs to 40lbs", "Large: 41lbs to 74lbs",
-               "Extra Large: Over 75lbs"]
-    options
+  def petfinder_get_all
+    response = HTTParty.get("http://api.petfinder.com/shelter.getPets?key=#{ENV['PETFINDER_KEY']}&id=#{params['animal']['shelter_id']}")
+    animals = response["petfinder"]["pets"]["pet"]
+
+    cats = nil
+    dogs = nil
+
+    animals.each do |animal|
+      if animal["animal"] == "Dog"
+        if animal["options"]["option"].include?("noCats")
+          cats = false
+        end
+
+        if animal["options"]["option"].include?("noDogs")
+          dogs = false
+        end
+
+        Animal.create!(
+          animal_rescue_id: current_user.id,
+          shelter_id: animal["shelterId"],
+          name: animal["name"],
+          animal: animal["animal"],
+          age: animal["age"],
+          sex: animal["sex"],
+          dog_friendly: dogs,
+          cat_friendly: cats,
+          description: animal["description"],
+          photo: animal["media"]["photos"]["photo"][2]["__content__"],
+          status: animal["status"]
+        )
+      end
+    end
+    flash[:notice] = "Your animals have been added."
+    redirect_to user_path(current_user)
   end
 
   private
@@ -99,17 +124,16 @@ class AnimalsController < ApplicationController
   def animal_params
     params.require(:animal).permit(
       :name,
-      :species,
-      :gender,
+      :animal,
+      :sex,
       :age,
-      :size,
       :description,
-      :fixed,
       :dog_friendly,
       :cat_friendly,
-      :kid_friendly,
       :animal_photo,
-      :fostered_by_id
+      :fostered_by_id,
+      :shelter_id,
+      :status
       ).merge(
         animal_rescue_id: current_user.id
       )

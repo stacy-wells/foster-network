@@ -5,7 +5,11 @@
     <div class="animal text-left large-4">
       <h4><strong><%= link_to animal.name, animal_path(animal) %></strong></h4>
         <div class="animal-photo-space">
-          <%= image_tag(animal.animal_photo) %>
+          <% if animal.photo.nil? %>
+            <%= image_tag(animal.animal_photo) %>
+          <% else %>
+            <%= image_tag(animal.photo) %>
+          <% end %>
         </div>
       <% if current_user.id != animal.animal_rescue_id  && !current_user.rescue_group? && animal.fostered_by_id == nil %>
         <% if animal.fostered_by.nil? %>
@@ -20,9 +24,8 @@
       <% if !animal.fostered_by.nil? %>
           <p><strong>In a foster home!</strong></p>
       <% end %>
-      <p><strong>Gender:</strong> <%= animal.gender %></p>
+      <p><strong>Gender:</strong> <%= animal.sex %></p>
       <p><strong>Age:</strong> <%= animal.age %></p>
-      <p><strong>Size:</strong> <%= animal.size %></p>
       <p>
         <strong>Rescue:</strong> <%= link_to animal.animal_rescue.name,
           user_path(animal.animal_rescue.id) %>

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :searches
 
   get :send_mail, to: 'searches#send_mail', as: :send_mail
+  get :petfinder_add_all, to: "animals#petfinder_add_all", as: :petfinder_add_all
+  post :petfinder_get_all, to: "animals#petfinder_get_all", as: :petfinder_get_all
 end

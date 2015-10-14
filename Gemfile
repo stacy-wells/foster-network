@@ -12,7 +12,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'fog'
 gem 'carrierwave'
-
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'

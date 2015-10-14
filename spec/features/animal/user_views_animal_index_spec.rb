@@ -42,9 +42,8 @@ feature "user views all animals on index page", %{
     scenario "should see all the animals displayed with their photo, name,
       species, gender, age, size" do
       expect(page).to have_content @animal.name
-      expect(page).to have_content @animal.gender
+      expect(page).to have_content @animal.sex
       expect(page).to have_content @animal.age
-      expect(page).to have_content @animal.size
       expect(page).to have_xpath(
         "//img[@src=\"/uploads/animal/animal_photo/#{@animal.id}/default-profile.jpeg\"]")
     end
@@ -60,18 +59,16 @@ feature "user views all animals on index page", %{
         click_link "Roscoe"
 
         expect(page).to have_content @animal.name
-        expect(page).to have_content @animal.gender
+        expect(page).to have_content @animal.sex
         expect(page).to have_content @animal.age
-        expect(page).to have_content @animal.size
       end
 
       scenario "User clicks 'See More'" do
         click_link "See More"
 
         expect(page).to have_content @animal.name
-        expect(page).to have_content @animal.gender
+        expect(page).to have_content @animal.sex
         expect(page).to have_content @animal.age
-        expect(page).to have_content @animal.size
       end
     end
   end
