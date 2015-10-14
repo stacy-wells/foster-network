@@ -1,0 +1,8 @@
+<h2>Connect with PetFinder!</h2>
+
+<%= form_for @animal,  url: { action: "petfinder_get_all"} do |form| %>
+  <%= form.label :shelter_id, "Shelter ID" %>
+  <%= form.text_field :shelter_id %>
+
+  <%= form.submit "Petfinder"%>
+<% end %>

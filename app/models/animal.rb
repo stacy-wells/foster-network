@@ -6,19 +6,12 @@ class Animal < ActiveRecord::Base
   has_many :foster_offers
 
   validates :name, presence: true
-  validates :species, presence: true
-  validates :species, inclusion: ["Dog", "Cat"]
-  validates :gender, inclusion: ["Female", "Male"]
-  validates :age, inclusion: ["1-3 years", "3-6 years", "6-10 years",
-                              "10-14 years", "under a year", "over 15 years"]
-  validates :size, inclusion: ["Extra Small: under 10lbs",
-                               "Small: 10lbs to 20lbs",
-                               "Medium: 21lbs to 40lbs",
-                               "Large: 41lbs to 74lbs",
-                               "Extra Large: Over 75lbs"]
-  validates :fixed, inclusion: [true, false]
-  validates :dog_friendly, inclusion: [true, false]
-  validates :cat_friendly, inclusion: [true, false]
-  validates :kid_friendly, inclusion: [true, false]
   validates :animal_rescue, presence: true
+  validates :animal, presence: true
+  validates :sex, presence: true
+  validates :age, inclusion: ["Baby", "Young", "Adult", "Senior"]
+
+  def self.age_options
+    ["Baby", "Young", "Adult", "Senior"]
+  end
 end

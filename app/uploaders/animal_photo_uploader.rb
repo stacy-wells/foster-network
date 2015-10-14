@@ -10,7 +10,6 @@ class AnimalPhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*)
-    ActionController::Base.helpers.asset_path(
-      "assets/images/fallback/" + [nil, "dog.png"].compact.join("_"))
+    'fallback/dog.png'
   end
 end

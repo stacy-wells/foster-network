@@ -16,17 +16,16 @@ FactoryGirl.define do
 
   factory :animal do
     name "Roscoe"
-    species "Dog"
-    gender "Male"
-    age "3-6 years"
-    size "Large: 41lbs to 74lbs"
+    animal "Dog"
+    sex "M"
+    age "Young"
     description "Loves to run!"
-    fixed true
     dog_friendly true
     cat_friendly true
-    kid_friendly true
     animal_photo { Rack::Test::UploadedFile.new(File.join(
       Rails.root, "spec", "support", "images", "default-profile.jpeg")) }
     animal_rescue_id 1
+    shelter_id "MA219"
+    status "A"
   end
 end

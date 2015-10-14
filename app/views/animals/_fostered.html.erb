@@ -7,9 +7,8 @@
         </div>
         <p><strong>Fostered by: </strong><%= link_to animal.fostered_by.email,
           user_path(animal.fostered_by_id) %></p>
-      <p><strong>Gender:</strong> <%= animal.gender %></p>
+      <p><strong>Gender:</strong> <%= animal.sex %></p>
       <p><strong>Age:</strong> <%= animal.age %></p>
-      <p><strong>Size:</strong> <%= animal.size %></p>
       <p>
         <strong>Rescue:</strong> <%= link_to animal.animal_rescue.name,
           user_path(animal.animal_rescue.id) %>

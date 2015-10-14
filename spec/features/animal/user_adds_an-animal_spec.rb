@@ -42,7 +42,6 @@ feature "user can add an animal", %{
 
       expect(page).to have_content "Add a new animal"
       expect(page).to have_content "Gender"
-      expect(page).to have_content "Size"
       expect(page).to have_content "Age"
       expect(page).to have_content "Description"
       expect(page).to have_content "Photo"
@@ -54,12 +53,9 @@ feature "user can add an animal", %{
 
         fill_in "Name", with: "Petie"
         select "Male", from: "Gender"
-        select "Extra Small: under 10lbs", from: "Size"
-        select "1-3 years", from: "Age"
-        select "Yes", from: "Are they spayed or neutered?"
+        select "Young", from: "Age"
         select "Yes", from: "Are they good with dogs?"
         select "Yes", from: "Are they good with cats?"
-        select "Yes", from: "Are they good with kids?"
         attach_file "Photo",
                     "#{Rails.root}/spec/support/images/default-profile.jpeg"
         fill_in "Description", with: "Very friendly!  Loves to play fetch."
@@ -79,7 +75,7 @@ feature "user can add an animal", %{
         click_link "Add an animal"
 
         select "Male", from: "Gender"
-        select "Extra Small: under 10lbs", from: "Size"
+        select "Young", from: "Age"
         click_button "Add"
 
         expect(page).to have_content "Name can't be blank"

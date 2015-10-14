@@ -37,9 +37,7 @@ feature "user can edit an animal", %{
 
       expect(page).to have_content "Update Roscoe"
       expect(page).to have_content "Name"
-      expect(page).to have_content "Species"
       expect(page).to have_content "Gender"
-      expect(page).to have_content "Size"
       expect(page).to have_content "Age"
       expect(page).to have_content "Description"
     end
@@ -50,11 +48,11 @@ feature "user can edit an animal", %{
         click_link "Update"
 
         fill_in "Name", with: "Petie"
-        select "Large: 41lbs to 74lbs", from: "Size"
+        select "Senior", from: "Age"
         click_button "Update"
 
         expect(page).to have_content "Petie has been updated!"
-        expect(page).to have_content "Large: 41lbs to 74lbs"
+        expect(page).to have_content "Senior"
       end
     end
   end

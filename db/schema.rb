@@ -11,27 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011131855) do
+ActiveRecord::Schema.define(version: 20151013204058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
-    t.string   "name",             null: false
-    t.string   "species",          null: false
-    t.string   "gender"
+    t.string   "name",                             null: false
     t.string   "age"
-    t.string   "size"
     t.string   "description"
-    t.boolean  "fixed"
     t.boolean  "dog_friendly"
     t.boolean  "cat_friendly"
-    t.boolean  "kid_friendly"
-    t.integer  "animal_rescue_id", null: false
+    t.integer  "animal_rescue_id",                 null: false
     t.integer  "fostered_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "animal_photo"
+    t.string   "shelter_id"
+    t.string   "animal",           default: "Dog", null: false
+    t.string   "sex",                              null: false
+    t.string   "photo"
+    t.string   "status"
   end
 
   create_table "foster_offers", force: :cascade do |t|
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20151011131855) do
     t.string   "state",                               null: false
     t.string   "phone"
     t.string   "description"
-    t.boolean  "rescue_group",                        null: false
+    t.boolean  "rescue_group"
     t.string   "profile_photo"
     t.boolean  "has_dogs"
     t.boolean  "has_cats"
