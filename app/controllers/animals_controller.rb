@@ -84,7 +84,7 @@ class AnimalsController < ApplicationController
   end
 
   def petfinder_get_all
-    response = HTTParty.get("http://api.petfinder.com/shelter.getPets?key=51e64f23d75e66c25b373ab9ada9943f&id=#{params["animal"]["shelter_id"]}")
+    response = HTTParty.get("http://api.petfinder.com/shelter.getPets?key=#{ENV['PETFINDER_KEY']}&id=#{params["animal"]["shelter_id"]}")
     animals = response["petfinder"]["pets"]["pet"]
 
     cats = nil
