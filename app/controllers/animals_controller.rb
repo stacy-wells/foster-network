@@ -84,7 +84,7 @@ class AnimalsController < ApplicationController
   end
 
   def petfinder_get_all
-    response = HTTParty.get("http://api.petfinder.com/shelter.getPets?key=#{ENV['PETFINDER_KEY']}&id=#{params["animal"]["shelter_id"]}")
+    response = HTTParty.get("http://api.petfinder.com/shelter.getPets?key=#{ENV['PETFINDER_KEY']}&id=#{params['animal']['shelter_id']}")
     animals = response["petfinder"]["pets"]["pet"]
 
     cats = nil
@@ -112,7 +112,7 @@ class AnimalsController < ApplicationController
           description: animal["description"],
           photo: animal["media"]["photos"]["photo"][2]["__content__"],
           status: animal["status"]
-          )
+        )
       end
     end
     flash[:notice] = "Your animals have been added."

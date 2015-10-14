@@ -10,7 +10,8 @@ feature "user can add an animals through the Petfinder API", %{
   [x] - User must have a rescue account
   [x] - User can navigate to the add an animal form from their show page
   [x] - User should input their Petfinder ID
-  [x] - User should navigate to the show page after the animals have been created
+  [x] - User should navigate to the show page after the animals have been
+        created
   [x] - User should be notified of success if their animals have been added
   [x] - User should be notified of failure if they don't fill out the form (JS)
   [x] - User should see the new animals on their show page

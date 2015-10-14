@@ -10,6 +10,6 @@ class AnimalPhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*)
-    'fallback/dog.png'
+    "fallback/dog.png"
   end
 end
