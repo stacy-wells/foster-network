@@ -13,16 +13,20 @@
         </div>
       <% if current_user.id != animal.animal_rescue_id  && !current_user.rescue_group? && animal.fostered_by_id == nil %>
         <% if animal.fostered_by.nil? %>
-          <%= form_for(@foster_offer) do |form| %>
-            <%= form.hidden_field :user_id, value: current_user.id  %>
-            <%= form.hidden_field :animal_id, value: animal.id  %>
-            <%= form.hidden_field :animal_rescue_id, value: animal.animal_rescue_id  %>
-              <%= form.submit "Foster Me!", class: "button", id: "foster-me", data: { confirm: 'Are you sure?'}%>
+          <% @offer = FosterOffer.where(user_id: current_user.id, animal_id: animal.id) %>
+          <% if !@offer.empty? %>
+            <p style="color:orange">
+              Foster offer sent!
+            </p>
+          <% else %>
+            <%= form_for(@foster_offer) do |form| %>
+              <%= form.hidden_field :user_id, value: current_user.id  %>
+              <%= form.hidden_field :animal_id, value: animal.id  %>
+              <%= form.hidden_field :animal_rescue_id, value: animal.animal_rescue_id  %>
+                <%= form.submit "Foster Me!", class: "button", id: "foster-me", data: { confirm: 'Are you sure?'}%>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-      <% if !animal.fostered_by.nil? %>
-          <p><strong>In a foster home!</strong></p>
       <% end %>
       <p>
         <strong>Gender:</strong>
