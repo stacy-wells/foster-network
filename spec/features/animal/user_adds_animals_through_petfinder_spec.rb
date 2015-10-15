@@ -31,7 +31,7 @@ feature "user can add an animals through the Petfinder API", %{
       click_link "Add an animal"
       click_link "Petfinder"
 
-      expect(page).to have_content "Connect with PetFinder"
+      expect(page).to have_content "Connect with Petfinder"
     end
 
     scenario "User inputs their Petfinder ID and click 'Submit'" do
@@ -39,7 +39,7 @@ feature "user can add an animals through the Petfinder API", %{
       click_link "Petfinder"
 
       fill_in "Shelter ID", with: "MA219"
-      click_button "Petfinder"
+      click_button "Import"
 
       expect(page).to have_content("Ginger")
       expect(page).to have_content("Cinnamon")
@@ -53,7 +53,7 @@ feature "user can add an animals through the Petfinder API", %{
       click_link "Petfinder"
 
       fill_in "Shelter ID", with: "MA219"
-      click_button "Petfinder"
+      click_button "Import"
 
       expect(page).to have_content("Your animals have been added.")
     end

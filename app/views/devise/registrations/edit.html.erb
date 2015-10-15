@@ -14,7 +14,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-    
+
     <div class="field small-8 small-offset-2 large-6 large-offset-3">
       <%= f.label :password, "Password (leave blank if you don't want to change it)" %>
       <%= f.password_field :password, autocomplete: "off" %>
@@ -66,14 +66,3 @@
 
     <%= link_to "Back", :back %>
   </div>
-
-  <div class="container footer" id="footer">
-    <div class="row">
-      <div class="columns">
-        <footer>
-          <img src="http://i.imgur.com/gOZIZR7.jpg" class="dog"/>
-        </footer>
-      </div>
-    </div>
-  </div>
-</div>

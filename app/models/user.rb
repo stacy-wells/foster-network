@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :rescue_group, inclusion: [true, false]
-  validates :description, length: { maximum: 500 }
+  validates :description, length: { maximum: 300 }
 end

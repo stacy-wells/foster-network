@@ -1,8 +1,22 @@
-<h2>Connect with PetFinder!</h2>
+<div class="large-6 large-offset-3 text-center">
+  <h2 class="text-center">Connect with Petfinder!</h2>
 
-<%= form_for @animal,  url: { action: "petfinder_get_all"} do |form| %>
-  <%= form.label :shelter_id, "Shelter ID" %>
-  <%= form.text_field :shelter_id %>
+<br>
 
-  <%= form.submit "Petfinder"%>
-<% end %>
+  <p class="text-center">
+    If your rescue organization has an account with PetFinder, you can import all
+    of your animals to the Foster Network.  Just grab your PetFinder Shelter ID and
+    enter it below!
+  </p>
+
+  <%= image_tag("powered-by-petfinder.png") %>
+
+  <%= form_for @animal,  url: { action: "petfinder_get_all"} do |form| %>
+    <div class="text-left">
+      <%= form.label :shelter_id, "Shelter ID" %>
+      <%= form.text_field :shelter_id %>
+    </div>
+
+    <%= form.submit "Import", class: "button" %>
+  <% end %>
+</div>

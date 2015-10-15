@@ -1,8 +1,12 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
+  before_filter :no_footer, only: [:index, :show]
+
   def index
+    # @no_footer = true
     @animals = Animal.all.where(fostered_by: nil)
     @foster_offer = FosterOffer.new
+    @offers = FosterOffer.where(user_id: current_user.id)
   end
 
   def show
@@ -94,10 +98,14 @@ class AnimalsController < ApplicationController
       if animal["animal"] == "Dog"
         if animal["options"]["option"].include?("noCats")
           cats = false
+        else
+          cats = true
         end
 
         if animal["options"]["option"].include?("noDogs")
           dogs = false
+        else
+          dogs = true
         end
 
         Animal.create!(
@@ -120,6 +128,10 @@ class AnimalsController < ApplicationController
   end
 
   private
+
+  def no_footer
+    @no_footer = true
+  end
 
   def animal_params
     params.require(:animal).permit(
