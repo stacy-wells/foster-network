@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_filter :no_footer, :only => [:show]
+  before_filter :no_footer, only: [:show]
 
   def new
     @search = Search.new

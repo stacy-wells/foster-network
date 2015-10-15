@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_filter :no_footer, :only => [:index, :show]
+  before_filter :no_footer, only: [:index, :show]
 
   def index
     # @no_footer = true
