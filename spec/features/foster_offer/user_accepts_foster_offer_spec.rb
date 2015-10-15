@@ -25,6 +25,9 @@ feature "user accepts foster offer", %{
 
     feature "User is signed in but not a rescue" do
       scenario "User does see foster offers" do
+        @animal = FactoryGirl.create(:animal, name: "Fluffy",
+          animal_rescue_id: @rescue_group.id)
+
         visit new_user_session_path
         fill_in "Email", with: @foster.email
         fill_in "Password", with: @foster.password

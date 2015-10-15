@@ -9,24 +9,28 @@
       <h5><%= @user.city%>, <%= @user.state%></h5>
       <p><%= @user.email%></p>
       <p><%= @user.description%></p>
-      <p><%= link_to "Update your information", edit_user_registration_path(@user) %>
-      <% if @user.rescue_group? %>
-        · <%= link_to "Add an animal", new_animal_path %> · <%= link_to "Find foster homes", new_search_path %></p>
+
+        <% if current_user.id == @user.id %>
+          <p><%= link_to "Update your information", edit_user_registration_path(@user) %>
+          <% if @user.rescue_group? %>
+            · <%= link_to "Add an animal", new_animal_path %> · <%= link_to "Find foster homes", new_search_path %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
 
-
-  <% if @user.rescue_group? %>
-    <% if !@unfostered_animals.empty? %>
-      <h3 class="text-center">Your current animals in need of a foster:</h3>
-        <%= render 'animals/unfostered' %>
-    <% end %>
-      <h3 class="text-center">Your current animals in foster homes:</h3>
-        <%= render 'animals/fostered' %>
-  <% else %>
-    <% if !@fosters.empty? %>
-      <h3 class="text-center">Your current fosters:</h3>
-      <%= render "animals/animal_div" %>
+  <% if current_user.id == @user.id %>
+    <% if @user.rescue_group? %>
+      <% if !@unfostered_animals.empty? %>
+        <h3 class="text-center">Your current animals in need of a foster:</h3>
+          <%= render 'animals/unfostered' %>
+      <% end %>
+        <h3 class="text-center">Your current animals in foster homes:</h3>
+          <%= render 'animals/fostered' %>
+    <% else %>
+      <% if !@fosters.empty? %>
+        <h3 class="text-center">Your current fosters:</h3>
+        <%= render "animals/animal_div" %>
+      <% end %>
     <% end %>
   <% end %>

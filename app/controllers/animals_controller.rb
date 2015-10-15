@@ -3,10 +3,9 @@ class AnimalsController < ApplicationController
   before_filter :no_footer, only: [:index, :show]
 
   def index
-    # @no_footer = true
     @animals = Animal.all.where(fostered_by: nil)
     @foster_offer = FosterOffer.new
-    @offers = FosterOffer.where(user_id: current_user.id)
+    @offers = FosterOffer.where(user_id: current_user.id, animal_id: @animal)
   end
 
   def show
