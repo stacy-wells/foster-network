@@ -10,6 +10,6 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*)
-    "fallback/default-profile.jpeg"
+    "fallback/dog.png"
   end
 end
