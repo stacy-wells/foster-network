@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -39,7 +40,6 @@
   <%- end -%>
 
   <% if controller_name != 'homes' %>
-  <div class="container">
   <% end %>
     <div class="row">
       <div class="columns">
@@ -47,6 +47,12 @@
       </div>
     </div>
   </div>
+
+  <% unless @no_footer %>
+    <footer>
+      <img src="http://i.imgur.com/gOZIZR7.jpg"/>
+    </footer>
+  <% end %>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>

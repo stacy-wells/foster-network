@@ -29,11 +29,16 @@ html body {
 
 }
 
+$footer-height: 207px;
+
+.container {
+  min-height: calc(100% - #{$footer-height});
+}
+
 footer {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 640px;
+  height: $footer-height;
+  margin-top: 1em;
+  text-align: center;
 }
 
 // FORGET PASSWORD FORM ****************************************/
@@ -139,10 +144,60 @@ div.foster-offer {
 }
 
 // ANIMAL SHOW PAGE ************************************/
-// 
-// .animal-show img {
-//   border-radius: 100%;
-// }
+.animal-profile-text,
+.animal-profile-photo {
+  display: inline;
+}
+
+.animal-profile-text p {
+  margin-bottom: 10px;
+  padding-bottom: 0;
+}
+
+.animal-profile-text h3 {
+  margin: 0;
+}
+
+.animal-profile-text h4 {
+  margin: 0;
+}
+
+.animal-profile-text h5 {
+  margin: 0;
+}
+
+.animal-profile-photo {
+  max-width: 300px;
+}
+
+.animal-profile {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  background-color: #D9D9D9;
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  min-height: 170px;
+}
+
+#rescue-header {
+  margin-top: 100px;
+}
+
+.animal-profile .animal-photo img {
+  border: 2px;
+  border-style: solid;
+  margin-left: 25px;
+  overflow: hidden;
+  max-height: 325px;
+  margin: auto;
+}
+
+.animal-profile .animal-photo {
+  padding-left: 25px;
+}
+
 // USER PROFILE ****************************************/
 .user-profile-text,
 .user-profile-photo {
@@ -176,7 +231,7 @@ div.foster-offer {
   margin-bottom: 35px;
   background-color: #D9D9D9;
   padding: 25px;
-  min-height: 310px;
+  min-height: 320px;
 }
 
 #rescue-header {
@@ -200,6 +255,24 @@ div.foster-offer {
 
 }
 
+// ANIMAL NEW PAGE *****************************/
+
+.petfinder-new-link {
+  background-color: #D9D9D9;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// BUTTONS ************************************/
+
+#foster-me {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+// RESPONSIVE STYLES **************************/
 @media only screen and (max-width: 40em) {
   .user-profile-photo {
     margin-bottom: 25px;

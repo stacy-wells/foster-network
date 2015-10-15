@@ -1,12 +1,30 @@
-<div class="user-profile large-12 animal-show">
-  <div class="user-profile-photo columns small-12">
-    <%= image_tag(@animal.photo) %>
+<div class="animal-profile large-12 animal-show">
+  <div class="animal-profile-photo animal-photo columns small-12">
+    <% if @animal.photo.nil? %>
+      <%= image_tag(@animal.animal_photo) %>
+    <% else %>
+      <%= image_tag(@animal.photo) %>
+    <% end %>
   </div>
-  <div class="user-profile-text small-12">
+  <div class="animal-profile-text small-12">
     <h4><strong><%= @animal.name%></strong></h4>
-    <p><strong>Gender:</strong> <%= @animal.sex %></p>
-    <p><strong>Age:</strong> <%= @animal.age %></p>
-    <p><strong>Description:</strong> <%= @animal.description %>
+    <p>
+      <% if @animal.sex == "F" %>
+        <%= "Female" %>
+      <% else %>
+        <%= "Male" %>
+      <% end %>
+       · <%= @animal.age %>
+       <% if @animal.dog_friendly? %>
+         · Dog Friendly
+       <% end %>
+       <% if @animal.cat_friendly? %>
+        · Cat Friendly
+      <% end %>
+    </p>
+  </div>
+  <div class="animal-profile animal-show description">
+    <p id="animal-description"><%= @animal.description %>
     <% if @animal.animal_rescue_id == current_user.id %>
 
       <%= link_to "Update", edit_animal_path(@animal) %> ·
@@ -14,7 +32,7 @@
           data: { confirm: 'Are you sure?' } %>
     </p>
     <% end %>
-  </div>
+</div>
 </div>
 
 

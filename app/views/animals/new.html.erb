@@ -1,6 +1,13 @@
 <h1 class="text-center">Add a new animal</h1>
 
-<%= link_to "Petfinder", petfinder_add_all_path %>
+<div class="text-center petfinder-new-link large-6 large-offset-3">
+  <p>
+    Do you have a PetFinder account?  You can import all of you animals to the
+    Foster Network by following the link below.
+  </p>
+  <%= link_to "Import from Petfinder", petfinder_add_all_path %>
+
+</div>
 
 <%= form_for(@animal) do |form| %>
   <div class="field small-8 small-offset-2 large-6 large-offset-3">
@@ -45,13 +52,3 @@
 <% end %>
 
 <p class="text-center">* denotes a required field</p>
-
-<div class="container footer" id="footer">
-  <div class="row">
-    <div class="columns">
-      <footer>
-        <img src="http://i.imgur.com/gOZIZR7.jpg" class="dog"/>
-      </footer>
-    </div>
-  </div>
-</div>

@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  before_filter :no_footer, :only => [:show]
+
   def new
     @search = Search.new
     @user = current_user
@@ -24,6 +26,10 @@ class SearchesController < ApplicationController
   end
 
   private
+
+  def no_footer
+    @no_footer = true
+  end
 
   def search_params
     params.require(:search).permit(
