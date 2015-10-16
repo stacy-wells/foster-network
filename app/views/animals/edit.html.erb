@@ -1,33 +1,33 @@
-<h1>Update <%= @animal.name %></h1>
+<h1 class="text-center">Update <%= @animal.name %></h1>
 
 <%= form_for(@animal) do |form| %>
-  <div class="field">
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
     <%= form.label :name %>
     <%= form.text_field :name  %>
   </div>
 
-  <div class="field">
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
     <%= form.label :sex, "Gender" %>
     <%= form.select :sex, [["Female", "Female"],["Male", "Male"]], prompt: "Select a gender" %>
   </div>
 
-  <div class="field">
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
     <%= form.label :age %>
     <%= form.select :age, options_for_select(@age_options), prompt: "Select an age range" %>
   </div>
 
-  <div class="field">
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
     <%= form.label :dog_friendly, "Are they good with dogs?" %>
     <%= form.select :dog_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
 
-  <div class="field">
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
     <%= form.label :cat_friendly, "Are they good with cats?" %>
     <%= form.select :cat_friendly, [["Yes", true],["No", false]], prompt: "Select yes or no" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %><br>
+  <div class="field small-8 small-offset-2 large-6 large-offset-3">
+    <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
@@ -36,7 +36,7 @@
     <%= form.file_field :animal_photo %>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center">
     <%= form.submit "Update", class: "button"%>
   </div>
 <% end %>
