@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :rescue_group
     devise_parameter_sanitizer.for(:sign_up) << :profile_photo
     devise_parameter_sanitizer.for(:sign_up) << :has_dogs
-    devise_parameter_sanitizer.for(:sign_up) << :has_kids
     devise_parameter_sanitizer.for(:sign_up) << :has_cats
 
     devise_parameter_sanitizer.for(:account_update) << :name
@@ -25,7 +24,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :description
     devise_parameter_sanitizer.for(:account_update) << :profile_photo
     devise_parameter_sanitizer.for(:account_update) << :has_dogs
-    devise_parameter_sanitizer.for(:account_update) << :has_kids
     devise_parameter_sanitizer.for(:account_update) << :has_cats
   end
 end

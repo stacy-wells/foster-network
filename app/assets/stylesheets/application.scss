@@ -290,8 +290,16 @@ div.foster-offer {
   .top-bar .top-bar-section li {
     margin: 0;
   }
-}
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  html body {
+
+  $footer-height: 103.5px;
+
+  .container {
+    min-height: calc(100% - #{$footer-height});
+  }
+
+  footer {
+    height: $footer-height;
+    margin-top: 1em;
+    text-align: center;
   }
 }
