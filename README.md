@@ -10,6 +10,11 @@ Foster Network is a tool for non-profit animal rescues. It allows users to organ
 
 ![alt text](http://i.imgur.com/WpeMG3S.jpg)
 
+Users can import animals from their Petfinder account by entering their shelter ID.  
+
+![alt text](http://i.imgur.com/FeCUu9q.png)
+
+
 ### The Basics
 
 * Built with Ruby on Rails
@@ -18,9 +23,10 @@ Foster Network is a tool for non-profit animal rescues. It allows users to organ
 * Designed to be responsive
 * File uploading handled with [CarrierWave](https://github.com/carrierwaveuploader/carrierwave) with storage in AWS
 * User authentication with [Devise](https://github.com/plataformatec/devise)
-* Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
-![alt text](http://i.imgur.com/h0ZCd4x.png)
 * [Capybara](https://github.com/jnicklas/capybara) testing suite supported with [Factory Girl](https://github.com/thoughtbot/factory_girl)
 * Configured with [Mandrill](http://mandrill.com/) for email deliveries
+* Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
+
+![alt text](http://i.imgur.com/h0ZCd4x.png)
 
 ### Future Features
