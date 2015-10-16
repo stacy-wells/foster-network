@@ -9,21 +9,24 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:sign_up) << :city
-    devise_parameter_sanitizer.for(:sign_up) << :state
-    devise_parameter_sanitizer.for(:sign_up) << :description
-    devise_parameter_sanitizer.for(:sign_up) << :rescue_group
-    devise_parameter_sanitizer.for(:sign_up) << :profile_photo
-    devise_parameter_sanitizer.for(:sign_up) << :has_dogs
-    devise_parameter_sanitizer.for(:sign_up) << :has_cats
+    devise_parameter_sanitizer.for(:sign_up) << [
+      :name,
+      :city,
+      :state,
+      :description,
+      :rescue_group,
+      :profile_photo,
+      :has_cats,
+      :has_dogs
+    ]
 
-    devise_parameter_sanitizer.for(:account_update) << :name
-    devise_parameter_sanitizer.for(:account_update) << :city
-    devise_parameter_sanitizer.for(:account_update) << :state
-    devise_parameter_sanitizer.for(:account_update) << :description
-    devise_parameter_sanitizer.for(:account_update) << :profile_photo
-    devise_parameter_sanitizer.for(:account_update) << :has_dogs
-    devise_parameter_sanitizer.for(:account_update) << :has_cats
+    devise_parameter_sanitizer.for(:account_update) << [
+      :name,
+      :city,
+      :description,
+      :profile_photo,
+      :has_dogs,
+      :has_cats
+    ]
   end
 end
