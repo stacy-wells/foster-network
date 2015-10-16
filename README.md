@@ -14,7 +14,7 @@ Users can import animals from their Petfinder account by entering their shelter 
 
 ![alt text](http://i.imgur.com/8kEAG6k.png)
 
-Animals that do not have an associated foster are displayed on the index page.  Here user can click 'Foster Me' to notify that animal's rescue via email that they have had a foster offer.
+Animals that do not have an associated foster are displayed on the index page.  Here users can click 'Foster Me' to notify that animal's rescue via email that they have had a foster offer.
 
 ![alt text](http://i.imgur.com/udKyIjZ.jpg)
 
@@ -36,3 +36,4 @@ Animals that do not have an associated foster are displayed on the index page.  
 * Would love to implement a feature that prevents users from sending multiple emails to one address within a time period
 * Create a way for users to crop their images to have a more uniform look for the index page
 * Enable users to add more images and display them with a slideshow on the animal's show page
+* Have a more dynamic index page that shows animals located within a certain distance of the current user
