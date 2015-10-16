@@ -14,6 +14,9 @@ Users can import animals from their Petfinder account by entering their shelter 
 
 ![alt text](http://i.imgur.com/8kEAG6k.png)
 
+Animals that do not have an associated foster are displayed on the index page.  Here user can click 'Foster Me' to notify that animal's rescue via email that they have had a foster offer.
+
+![alt text](http://i.imgur.com/udKyIjZ.jpg)
 
 ### The Basics
 
@@ -27,7 +30,6 @@ Users can import animals from their Petfinder account by entering their shelter 
 * Configured with [Mandrill](http://mandrill.com/) for email deliveries
 * Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
 
-![alt text](http://i.imgur.com/zWaXlC8.jpg)
 
 ### Future Features
 
