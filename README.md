@@ -16,7 +16,7 @@ Users can import animals from their Petfinder account by entering their shelter 
 
 Animals that do not have an associated foster are displayed on the index page.  Here users can click 'Foster Me' to notify that animal's rescue via email that they have had a foster offer.
 
-![alt text](http://i.imgur.com/udKyIjZ.jpg)
+![alt text](http://i.imgur.com/ZPQsJpx.jpg)
 
 ### The Basics
 
