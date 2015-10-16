@@ -12,7 +12,7 @@ Foster Network is a tool for non-profit animal rescues. It allows users to organ
 
 Users can import animals from their Petfinder account by entering their shelter ID.  
 
-![alt text](http://i.imgur.com/FeCUu9q.png)
+![alt text](http://i.imgur.com/8kEAG6k.png)
 
 
 ### The Basics
@@ -27,6 +27,10 @@ Users can import animals from their Petfinder account by entering their shelter 
 * Configured with [Mandrill](http://mandrill.com/) for email deliveries
 * Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
 
-![alt text](http://i.imgur.com/h0ZCd4x.png)
+![alt text](http://i.imgur.com/zWaXlC8.jpg)
 
 ### Future Features
+
+* Would love to implement a feature that prevents users from sending multiple emails to one address within a time period
+* Create a way for users to crop their images to have a more uniform look for the index page
+* Enable users to add more images and display them with a slideshow on the animal's show page
