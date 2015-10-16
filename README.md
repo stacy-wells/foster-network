@@ -37,3 +37,4 @@ Animals that do not have an associated foster are displayed on the index page.  
 * Create a way for users to crop their images to have a more uniform look for the index page
 * Enable users to add more images and display them with a slideshow on the animal's show page
 * Have a more dynamic index page that shows animals located within a certain distance of the current user
+* Pagination with [Kaminari](https://github.com/amatsuda/kaminari)
