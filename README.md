@@ -29,7 +29,7 @@ Animals that do not have an associated foster are displayed on the index page.  
 * [Capybara](https://github.com/jnicklas/capybara) testing suite supported with [Factory Girl](https://github.com/thoughtbot/factory_girl)
 * Configured with [Mandrill](http://mandrill.com/) for email deliveries
 * Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
-
+* Workflow organized with [Trello](https://trello.com/b/WVqma2aZ/foster-network)
 
 ### Future Features
 
