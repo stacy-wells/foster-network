@@ -6,7 +6,7 @@
 
 ### About
 
-Foster Network is a tool for non-profit animal rescues. It allows users to organize the animals in their care, and network them to find foster homes.
+Foster Network is a tool for non-profit animal rescues. It allows users to organize the animals in their care and network them to find foster homes.
 
 ![alt text](http://i.imgur.com/WpeMG3S.jpg)
 
