@@ -31,6 +31,10 @@ Animals that do not have an associated foster are displayed on the index page.  
 * Connected to [Petfinder's API](https://www.petfinder.com/developers/api-docs)
 * Workflow organized with [Trello](https://trello.com/b/WVqma2aZ/foster-network)
 
+### Schema
+
+![alt text](http://i.imgur.com/GgPo1ne.png)
+
 ### Future Features
 
 * Would love to implement a feature that prevents users from sending multiple emails to one address within a time period
